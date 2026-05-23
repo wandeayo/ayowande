@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 
+import { ArcticEdgeCase } from "@/components/case-study/arctic-edge";
 import { CarmenAICase } from "@/components/case-study/carmen-ai";
 
 /**
@@ -9,4 +10,5 @@ import { CarmenAICase } from "@/components/case-study/carmen-ai";
  */
 export const CASE_STUDIES: Record<string, ComponentType> = {
   "carmen-ai": CarmenAICase,
+  "arctic-edge": ArcticEdgeCase,
 };
