@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
+import { Reveal } from "@/components/site/reveal";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { WorkFilters } from "@/components/work/work-filters";
+import { WorkCard } from "@/components/work/work-card";
 import { PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -22,15 +23,18 @@ export default function WorkPage() {
           <span className="accent-it">work.</span>
         </h1>
 
-        <WorkFilters
-          projects={PROJECTS}
-          description={
-            <p className="max-w-[50ch] text-[17px] text-ink-dim">
-              A small set of projects I am proud of. Each entry tells the story of a problem, a
-              system, and the team that built it.
-            </p>
-          }
-        />
+        <p className="mt-10 max-w-[50ch] text-[17px] text-ink-dim">
+          A small set of projects I am proud of. Each entry tells the story of a problem, a
+          system, and the team that built it.
+        </p>
+
+        <div className="grid grid-cols-1 gap-8 pt-20 pb-10 md:grid-cols-2">
+          {PROJECTS.map((project, idx) => (
+            <Reveal key={project.slug} className={project.featured ? "md:col-span-2" : ""}>
+              <WorkCard project={project} index={idx} />
+            </Reveal>
+          ))}
+        </div>
       </Container>
     </div>
   );
