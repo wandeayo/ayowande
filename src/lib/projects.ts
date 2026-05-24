@@ -1,5 +1,3 @@
-export type ProjectCategory = "ai" | "saas" | "mobile";
-
 export interface Project {
   slug: string;
   num: string;
@@ -9,7 +7,6 @@ export interface Project {
   year: string;
   role: string;
   tags: string[];
-  category: ProjectCategory;
   featured?: boolean;
   /** Background gradient used in cursor previews and card media. */
   cardGradient: string;
@@ -28,7 +25,6 @@ export const PROJECTS: Project[] = [
     year: "2025",
     role: "Lead Designer",
     tags: ["AI Agent", "B2B SaaS"],
-    category: "ai",
     featured: true,
     cardGradient: "linear-gradient(135deg, #1a2a1f 0%, #0f1612 100%)",
     cardImage: "/work/carmen-ai.png",
@@ -43,7 +39,6 @@ export const PROJECTS: Project[] = [
     year: "2025",
     role: "UX Designer",
     tags: ["Web App", "Internal"],
-    category: "saas",
     cardGradient: "linear-gradient(135deg, #1f1a26 0%, #0f0c14 100%)",
     cardImage: "/work/airstride.png",
   },
@@ -56,7 +51,6 @@ export const PROJECTS: Project[] = [
     year: "2024",
     role: "Design Lead",
     tags: ["Mobile", "Wellness"],
-    category: "mobile",
     cardGradient: "linear-gradient(135deg, #1a242a 0%, #0c1316 100%)",
     cardImage: "/work/arctic-edge.png",
   },
@@ -70,20 +64,10 @@ export const PROJECTS: Project[] = [
     year: "2024",
     role: "UX Designer",
     tags: ["Design System", "Tokens"],
-    category: "saas",
     cardGradient: "linear-gradient(135deg, #2a261a 0%, #16130c 100%)",
     cardImage: "/work/dexla-design-system.png",
   },
 ];
-
-export const PROJECT_FILTERS = [
-  { id: "all", label: "All" },
-  { id: "ai", label: "AI" },
-  { id: "saas", label: "SaaS" },
-  { id: "mobile", label: "Mobile" },
-] as const;
-
-export type ProjectFilter = (typeof PROJECT_FILTERS)[number]["id"];
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return PROJECTS.find((p) => p.slug === slug);
