@@ -255,6 +255,10 @@
     grid-column: span 4;
     grid-row: span 3;
   }
+  .photo-mark {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
   @media (max-width: 800px) {
     .photo-tile--tall {
       grid-column: span 3;
@@ -267,6 +271,10 @@
     .photo-tile--square {
       grid-column: span 3;
       grid-row: span 3;
+    }
+    .photo-mark {
+      grid-column: span 3;
+      grid-row: span 1;
     }
   }
 

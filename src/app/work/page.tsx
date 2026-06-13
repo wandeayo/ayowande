@@ -28,9 +28,9 @@ export default function WorkPage() {
           system, and the team that built it.
         </p>
 
-        <div className="grid grid-cols-1 gap-8 pt-20 pb-10 md:grid-cols-2">
+        <div className="flex flex-col gap-8 pt-20 pb-10">
           {PROJECTS.map((project, idx) => (
-            <Reveal key={project.slug} className={project.featured ? "md:col-span-2" : ""}>
+            <Reveal key={project.slug}>
               <WorkCard project={project} index={idx} />
             </Reveal>
           ))}
