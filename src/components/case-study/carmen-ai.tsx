@@ -150,7 +150,7 @@ export function CarmenAICase() {
         </h1>
         <p className="lede">
           Carmen is an AI partner-acquisition agent that sources, qualifies, and reaches out to partners on autopilot.
-          The hard part was never the automation. It was getting a sceptical operator to <em>hand over the
+          The hard part was never the automation. It was getting a sceptical partnership manager to <em>hand over the
           relationship</em>.
         </p>
         <ImpactStrip />
@@ -303,12 +303,12 @@ export function CarmenAICase() {
                 Make autonomous work <span className="it">legible.</span>
               </h2>
               <p>
-                The command center at the top of this page answers the question every operator asks at 9am:{" "}
+                The command center at the top of this page answers the question every partnership manager asks at 9am:{" "}
                 <em>what has Carmen done while I was away, and is it working?</em> Three decisions did most of the heavy
                 lifting.
               </p>
               <p className="dim">
-                None of them are flashy. The things that make an operator trust an agent are mostly small: being able to
+                None of them are flashy. The things that make someone trust an agent are mostly small: being able to
                 see its work, read what it is doing, and stop it without hunting for the button.
               </p>
             </div>
@@ -390,7 +390,7 @@ export function CarmenAICase() {
               </h2>
               <p>
                 Carmen rolled out to design-partner workspaces through 2025. The model had been capable for months. What
-                changed usage was making its work visible and its setup quick enough that operators stopped checking over
+                changed usage was making its work visible and its setup quick enough that partnership managers stopped checking over
                 its shoulder.
               </p>
             </div>
@@ -428,7 +428,7 @@ export function CarmenAICase() {
               </h2>
               <p>
                 The legibility surfaces are the most polished part of the product, and the part heavy users touch least
-                once they trust Carmen. I&rsquo;d design them to recede on purpose. As an operator approves their
+                once they trust Carmen. I&rsquo;d design them to recede on purpose. As a partnership manager approves their
                 hundredth action in a category, the reasoning should quietly collapse into a glance.
               </p>
               <p className="dim">
