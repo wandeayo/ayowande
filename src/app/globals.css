@@ -474,6 +474,14 @@
   margin-top: 36px;
 }
 
+/* On desktop the subtitle runs wider (~44% of viewport) for a shorter,
+   calmer block; small screens keep the narrow measure for readability. */
+@media (min-width: 901px) {
+  .csx-hero .lede {
+    max-width: 44vw;
+  }
+}
+
 /* ---------- Narrative sections ---------- */
 .csx-sec {
   padding: 96px 0;
