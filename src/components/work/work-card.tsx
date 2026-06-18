@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { MediaTile } from "@/components/ui/media-tile";
 import { Tag } from "@/components/ui/tag";
-import { cn } from "@/lib/cn";
 import type { Project } from "@/lib/projects";
 
 interface WorkCardProps {
@@ -10,31 +9,22 @@ interface WorkCardProps {
   index: number;
 }
 
-/**
- * Single project card used in the /work archive.
- * Featured projects span both columns and use a wider aspect ratio.
- */
+
 export function WorkCard({ project, index }: WorkCardProps) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={cn(
-        "group block overflow-hidden rounded-lg border border-line bg-bg-elev transition-[border-color,transform] duration-500 ease-[var(--ease-out-quart)] hover:border-line-strong",
-        project.featured && "md:col-span-2",
-      )}
+      className="group block overflow-hidden rounded-lg border border-line bg-bg-elev transition-[border-color,transform] duration-500 ease-[var(--ease-out-quart)] hover:border-line-strong"
     >
       <MediaTile
-        aspect={project.featured ? "aspect-[21/9]" : "aspect-[16/10]"}
+        aspect="aspect-[21/9]"
         background={project.cardGradient}
         className="rounded-none border-0"
       >
         <div className="absolute top-5 left-6 font-mono text-[11px] uppercase tracking-[0.1em] text-white/50">
           {String(index + 1).padStart(2, "0")} / {project.role}
         </div>
-        <div
-          className="absolute bottom-5 left-6 font-serif italic leading-[1] tracking-[-0.03em] text-accent"
-          style={{ fontSize: project.featured ? 96 : 56 }}
-        >
+        <div className="absolute bottom-5 left-6 font-serif italic leading-[1] tracking-[-0.03em] text-accent text-[56px] md:text-[96px]">
           {project.title.split(" ")[0]}
         </div>
       </MediaTile>

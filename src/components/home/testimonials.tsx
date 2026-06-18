@@ -12,15 +12,15 @@ export function Testimonials() {
           <Eyebrow>Kind words / Testimonials</Eyebrow>
           <div>
             <h2 className="font-serif text-[clamp(40px,5.4vw,80px)] font-normal leading-[0.98] tracking-[-0.02em]">
-              What teammates,
+              Notes from people
               <br />
-              founders and engineers
+              I&apos;ve actually
               <br />
-              <span className="accent-it">say about working with me.</span>
+              <span className="accent-it">shipped with.</span>
             </h2>
             <p className="mt-8 max-w-[56ch] text-[16px] leading-[1.55] text-ink-dim">
-              The bit I cherish most. Below are notes from people I&apos;ve actually shipped with,
-              copied verbatim from LinkedIn recommendations and Slack DMs I never deleted.
+              Copied verbatim from LinkedIn recommendations and Slack DMs I never deleted. The bit
+              I&apos;m most precious about on this site.
             </p>
           </div>
         </div>
