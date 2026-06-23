@@ -1,0 +1,487 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/site/reveal";
+import { CaseFigure } from "@/components/case-study/case-figure";
+
+const META: [string, string, boolean?][] = [
+  ["Client", "Airstride · 2025"],
+  ["Role", "UX Designer"],
+  ["Scope", "6 modules · end-to-end"],
+  ["Status", "Shipped · Production", true],
+];
+
+const PROBLEMS = [
+  {
+    id: "P.01",
+    title: "The deal-loser.",
+    body: "Prospects were naming the interface directly as the reason they chose a competitor. UX had become a line item on the sales call.",
+  },
+  {
+    id: "P.02",
+    title: "The revision spiral.",
+    body: "Stakeholder churn meant finished screens kept cycling back for variation requests. Design time was consumed by decisions that would not stay made.",
+  },
+  {
+    id: "P.03",
+    title: "The implementation gap.",
+    body: "Designs were not being built faithfully. The Mantine UI library gave developers choices that diverged from intent, and there was no close review process to catch the drift.",
+  },
+];
+
+const MODULES = [
+  { id: "deals-management", label: "Deals" },
+  { id: "account-mapping", label: "Account Mapping" },
+  { id: "analytics", label: "Analytics" },
+  { id: "partner-training", label: "Partner Training" },
+  { id: "content-library", label: "Content Library" },
+  { id: "engagement", label: "Engagement" },
+];
+
+function ModuleNav() {
+  const [active, setActive] = useState<string>(MODULES[0].id);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    MODULES.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActive(id);
+        },
+        { rootMargin: "-30% 0px -60% 0px" }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  return (
+    <div className="sticky top-0 z-20 border-b border-line bg-bg/90 backdrop-blur-md">
+      <Container>
+        <nav className="flex overflow-x-auto">
+          {MODULES.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={[
+                "relative shrink-0 px-5 py-4 font-mono text-[12px] uppercase tracking-[0.1em] transition-colors",
+                active === id
+                  ? "text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-accent"
+                  : "text-ink-faint hover:text-ink",
+              ].join(" ")}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+      </Container>
+    </div>
+  );
+}
+
+export function AirstrideCase() {
+  return (
+    <div className="csx">
+      {/* ===== HERO ===== */}
+      <Container as="section" className="csx-hero">
+        <div className="csx-kicker">Case 02 · Partner Management Platform</div>
+        <div className="meta-grid">
+          {META.map(([l, v, a]) => (
+            <div key={l}>
+              <span className="label">{l}</span>
+              <span className={`val ${a ? "accent" : ""}`}>{v}</span>
+            </div>
+          ))}
+        </div>
+        <h1>
+          Redesigning the platform that was <span className="it">losing deals.</span>
+        </h1>
+        <p className="lede">
+          Airstride built a partner management suite, but the UX fell behind the product. Prospects were citing the
+          interface as the reason they chose a competitor. I came in as the sole designer to redesign all six modules
+          from scratch.
+        </p>
+        <div className="csx-hero-cta">
+          <Button
+            variant="primary"
+            href="https://app.airstride.ai"
+            trailingArrow
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See it live
+          </Button>
+        </div>
+      </Container>
+
+      {/* ===== 01 CONTEXT ===== */}
+      <section className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">01 / Context</div>
+              <div className="tick"></div>
+              <div className="aside-note">UX was showing up on sales calls as a named objection.</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                The product worked. The <span className="it">interface</span> was losing the evaluation.
+              </h2>
+              <p>
+                Airstride had a functioning partner management platform: tools for tracking deals, mapping accounts to a
+                CRM, training partners, managing content, and measuring engagement. The underlying capability was real.
+                What was failing was the surface.
+              </p>
+              <p className="dim">
+                Sales calls were surfacing a pattern. Prospects evaluated the product and then went with a rival, citing
+                the UX as the tipping point. Six modules, each with their own flows and edge cases, all needed
+                redesigning at once, with one designer.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+      </section>
+
+      {/* ===== 02 PROBLEMS ===== */}
+      <section className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">02 / Problems</div>
+              <div className="tick"></div>
+              <div className="aside-note">Three problems. Only one of them was on screen.</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                The design problem was also an <span className="it">organisation</span> problem.
+              </h2>
+              <p>
+                The visual gaps were obvious. But two other problems were slowing down any solution: stakeholder
+                decisions that kept reversing, and a build process that did not faithfully reproduce what was designed.
+                Fixing the screens without addressing either of those would have meant designing the same things twice.
+              </p>
+              <ul className="csx-list">
+                {PROBLEMS.map((p) => (
+                  <li key={p.id}>
+                    <span className="li-num">{p.id}</span>
+                    <div className="li-text">
+                      <strong>{p.title}</strong> {p.body}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Container>
+        </Reveal>
+      </section>
+
+      {/* ===== STICKY MODULE NAV ===== */}
+      <ModuleNav />
+
+      {/* ===== MODULE 01: DEALS MANAGEMENT ===== */}
+      <section id="deals-management" className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Module 01</div>
+              <div className="tick"></div>
+              <div className="aside-note">Deals Management</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                Every deal&rsquo;s status, <span className="it">scannable</span> without opening it.
+              </h2>
+              <p>
+                The deals module had to answer a practical question at a glance: which deals need attention right now?
+                The previous design required opening each record to understand its state. The redesign introduced a
+                clear set of deal states, default, management, and completed, so partnership managers could scan the
+                list without drilling in.
+              </p>
+              <p className="dim">
+                A filter component with a warning indicator surfaces deals that need action without badge hunting.
+                The primary and tertiary button hierarchy keeps the most common action prominent without cluttering the
+                interface with equal-weight options. Partner detail panels open as overlays rather than routing to a
+                separate page, so the list context stays intact while the user is working inside a record.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+        <CaseFigure
+          surface="tile"
+          kicker="Deals Management"
+          caption="Deal list with state indicators, filter and partner detail overlay"
+          images={[
+            {
+              src: "/work/airstride/deals-management.png",
+              alt: "Deals management screen showing deal states, filter with warning indicator, and partner detail overlay",
+              width: 1440,
+              height: 900,
+            },
+          ]}
+        />
+      </section>
+
+      {/* ===== MODULE 02: ACCOUNT MAPPING ===== */}
+      <section id="account-mapping" className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Module 02</div>
+              <div className="tick"></div>
+              <div className="aside-note">Account Mapping</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                Name what you need <span className="it">before</span> you ask for it.
+              </h2>
+              <p>
+                Connecting a CRM is the moment a user hands over access to sensitive business data. The flow had to
+                make the scope of that access legible before it happened. The copy that precedes the authorisation
+                redirect names it plainly: <em>we only access what is needed to map your accounts.</em> That sentence
+                sits above the button, not buried in a permissions modal.
+              </p>
+              <p className="dim">
+                The connection journey uses step badges to track progress through a multi-stage flow. Each state has a
+                distinct visual treatment: Not connected, Connected but not yet selected, Selected, Pending, and
+                Success. A verification badge confirms a successful link. Users who abandon mid-flow re-enter and see
+                exactly where they left off, without losing progress.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+        <CaseFigure
+          surface="tile"
+          kicker="Account Mapping"
+          caption="CRM connection flow with explicit permission scoping, step badges and connection states"
+          images={[
+            {
+              src: "/work/airstride/account-mapping.png",
+              alt: "Account mapping CRM connection flow showing step progress badges and permission scoping copy",
+              width: 1440,
+              height: 900,
+            },
+          ]}
+        />
+      </section>
+
+      {/* ===== MODULE 03: ANALYTICS ===== */}
+      <section id="analytics" className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Module 03</div>
+              <div className="tick"></div>
+              <div className="aside-note">Analytics</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                Give everyone a different <span className="it">view</span> of the same data.
+              </h2>
+              <p>
+                Analytics dashboards for B2B platforms face a familiar tension: the metrics a vendor cares about are
+                not the same ones a partner manager cares about. A single fixed layout satisfies nobody. The solution
+                was a customise view overlay that lets users control which data surfaces they see and how they are
+                arranged, without changing the underlying dataset.
+              </p>
+              <p className="dim">
+                The base dashboard ships with a sensible default. The customisation modal is accessible directly from
+                the top bar and applies changes immediately. Features on the roadmap but not yet shipped are kept as
+                hidden sections in the Figma file, holding the design work without surfacing it in the live product
+                until the engineering work catches up.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+        <CaseFigure
+          surface="tile"
+          kicker="Analytics"
+          caption="Analytics dashboard with customise view overlay and default data surface"
+          images={[
+            {
+              src: "/work/airstride/analytics.png",
+              alt: "Analytics module showing main dashboard and customise view modal with layout controls",
+              width: 1440,
+              height: 900,
+            },
+          ]}
+        />
+      </section>
+
+      {/* ===== MODULE 04: PARTNER TRAINING ===== */}
+      <section id="partner-training" className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Module 04</div>
+              <div className="tick"></div>
+              <div className="aside-note">Partner Training</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                The same module, three <span className="it">different</span> jobs.
+              </h2>
+              <p>
+                Training content in a partner platform serves three separate audiences at once. The Vendor builds and
+                publishes modules. The Partner Admin deploys them to their team. The Partner User completes them. Each
+                role needed its own view of the same underlying structure, without tripling the management overhead
+                behind it.
+              </p>
+              <p className="dim">
+                Content creation offered two paths: upload existing material and have the system structure it into a
+                module, or build from scratch manually. Both lead to the same module dashboard. Certification states,
+                certified, not yet certified, and partner-certified, gave vendors a legible read on completion across
+                their partner base without opening individual records. Empty states were designed for the onboarding
+                moment, when a vendor logs in for the first time and the module list is blank.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+        <CaseFigure
+          surface="tile"
+          kicker="Partner Training · Vendor view"
+          caption="Module dashboard with AI and manual creation paths, certification tracking, and role-specific views"
+          images={[
+            {
+              src: "/work/airstride/partner-training.png",
+              alt: "Partner training module showing vendor view with module creation paths and certification states",
+              width: 1440,
+              height: 900,
+            },
+          ]}
+        />
+      </section>
+
+      {/* ===== MODULE 05: CONTENT LIBRARY ===== */}
+      <section id="content-library" className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Module 05</div>
+              <div className="tick"></div>
+              <div className="aside-note">Content Library</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                Content access is a <span className="it">permissions</span> problem first.
+              </h2>
+              <p>
+                A content library in a partner platform is not just a file system. The wrong partner seeing draft
+                materials, pricing documents, or unreleased product content is a real business risk. The design
+                organised content into folders with per-folder access control: who can view it, who can edit it, set
+                at creation and adjustable after.
+              </p>
+              <p className="dim">
+                Three role views, Vendor User, Partner Admin, and Partner User, gave each audience the right level of
+                control without surfacing settings they could not act on. Three folder creation paths covered the main
+                use cases: build manually, generate structure using AI, or mirror from an existing external source.
+                The mirroring flow included a review step where vendors inspect what will be pulled in before
+                confirming, reducing the risk of accidentally surfacing content from an unreviewed source.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+        <CaseFigure
+          surface="tile"
+          kicker="Content Library · Vendor User view"
+          caption="Content library with folder structure, per-folder access controls and mirroring review flow"
+          images={[
+            {
+              src: "/work/airstride/content-library.png",
+              alt: "Content library showing folder organisation, permission controls per folder and source mirroring review",
+              width: 1440,
+              height: 900,
+            },
+          ]}
+        />
+      </section>
+
+      {/* ===== MODULE 06: ENGAGEMENT ===== */}
+      <section id="engagement" className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Module 06</div>
+              <div className="tick"></div>
+              <div className="aside-note">Engagement</div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                Which partners are <span className="it">drifting,</span> and which need a nudge.
+              </h2>
+              <p>
+                Vendors managing dozens of partner relationships cannot check in manually. The engagement module
+                answers the question a vendor asks at the start of the week: who has gone quiet, and who is active?
+                Activity data, logins, content consumed, training completed, deal movement, rolls up into a surface
+                that flags disengaged partners without requiring a deep dive into individual records.
+              </p>
+              <p className="dim">
+                The design prioritises signal over noise. Rather than surfacing every data point, the engagement view
+                surfaces the partners who have crossed an activity threshold in either direction, so a vendor can act
+                quickly on the ones that matter without wading through a full audit log.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+        <CaseFigure
+          surface="tile"
+          kicker="Engagement"
+          caption="Partner engagement overview with activity signals and engagement status per partner"
+          images={[
+            {
+              src: "/work/airstride/engagement.png",
+              alt: "Engagement module showing partner activity summary and engagement status indicators",
+              width: 1440,
+              height: 900,
+            },
+          ]}
+        />
+      </section>
+
+      {/* ===== REFLECTION ===== */}
+      <section className="csx-sec">
+        <Reveal>
+          <Container className="csx-sec-grid">
+            <aside className="csx-sec-aside">
+              <div className="csx-sec-num">Reflection</div>
+              <div className="tick"></div>
+            </aside>
+            <div className="csx-body">
+              <h2>
+                What I would do with more <span className="it">time.</span>
+              </h2>
+              <p>
+                The thing I would change is where I started. I began in the interface, working from the existing
+                product and conversations with stakeholders. What I did not do first was spend meaningful time inside
+                the partner ecosystem industry itself: talking to partnership managers at other companies,
+                understanding how they think about vendor relationships, where the real friction lives day-to-day.
+              </p>
+              <p className="dim">
+                That research would have sharpened the problem framing earlier, and likely changed some of the
+                decisions made in the first few modules. The stakeholder revision problem would also have benefited
+                from an explicit alignment session before the first design was shown, not after. Getting
+                decision-makers to agree on criteria before seeing options is harder to arrange than it sounds, but it
+                would have saved significant design cycles.
+              </p>
+              <p className="dim">
+                The outcome that mattered: paying customers who saw the new designs said they preferred it, and that
+                they would recommend Airstride&rsquo;s UX to other companies. The opportunity cost sits in the
+                industry research that did not happen, the depth that might have made the six modules sharper from
+                the start.
+              </p>
+            </div>
+          </Container>
+        </Reveal>
+      </section>
+    </div>
+  );
+}
