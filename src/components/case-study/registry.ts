@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 
+import { AirstrideCase } from "@/components/case-study/airstride";
 import { ArcticEdgeCase } from "@/components/case-study/arctic-edge";
 import { CarmenAICase } from "@/components/case-study/carmen-ai";
 import { DexlaDesignSystemCase } from "@/components/case-study/dexla-design-system";
@@ -26,6 +27,7 @@ import { DexlaDesignSystemCase } from "@/components/case-study/dexla-design-syst
  */
 export const CASE_STUDIES: Record<string, ComponentType> = {
   "carmen-ai": CarmenAICase,
+  "airstride": AirstrideCase,
   "arctic-edge": ArcticEdgeCase,
   "dexla-design-system": DexlaDesignSystemCase,
 };
