@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700&family=Fragment+Mono&display=swap">
+<style>
+:root {
+  --as-blue: #2367f1;
+  --as-pink: #f124b3;
+  --as-lime: #c8f123;
+  --as-orange: #f15323;
+  --as-blue-50: #eef3ff;
+  --as-blue-100: #d4e1fc;
+  --as-blue-200: #b5cbfa;
+  --as-blue-300: #8caef7;
+  --as-blue-400: #6d97f4;
+  --as-blue-500: #2367f1;
+  --as-blue-600: #1f5cd8;
+  --as-blue-700: #1a4db5;
+  --as-blue-800: #153e91;
+  --as-blue-900: #102f6e;
+  --as-pink-50: #ffedf8;
+  --as-pink-100: #ffd0ec;
+  --as-pink-300: #f87ad0;
+  --as-pink-500: #f124b3;
+  --as-pink-700: #b51a87;
+  --as-pink-900: #6e1053;
+  --as-lime-50: #fbfee8;
+  --as-lime-100: #f3fcc2;
+  --as-lime-300: #ddf75e;
+  --as-lime-500: #c8f123;
+  --as-lime-700: #97b71a;
+  --as-lime-900: #5c6f10;
+  --as-orange-50: #fff1ec;
+  --as-orange-100: #ffd8cb;
+  --as-orange-300: #f99070;
+  --as-orange-500: #f15323;
+  --as-orange-700: #b73e1a;
+  --as-orange-900: #702610;
+  --as-tile-blue: #e8effe;
+  --as-tile-pink: #ffedf8;
+  --as-tile-orange: #fff1ec;
+  --as-tile-green: #eaf6ee;
+  --as-tile-green-fg: #1a8c4a;
+  --as-cream: #f2f0ed;
+  --as-cream-dark: #e8e6e4;
+  --as-bg-dark: #171717;
+  --as-bg-darker: #141414;
+  --as-white: #ffffff;
+  --as-ink: #141414;
+  --as-text-grey: #666666;
+  --as-mid-grey: #ababab;
+  --as-placeholder: #999999;
+  --as-border: #d5d3d1;
+  --as-border-soft: rgba(0,0,0,0.1);
+  --text-primary: var(--as-ink);
+  --text-secondary: var(--as-text-grey);
+  --text-muted: var(--as-placeholder);
+  --text-on-dark: var(--as-white);
+  --text-link: var(--as-blue);
+  --surface-page: var(--as-white);
+  --surface-cream: var(--as-cream);
+  --surface-card: var(--as-white);
+  --surface-dark: var(--as-bg-darker);
+  --border-default: var(--as-border);
+  --border-strong: var(--as-ink);
+  --as-gradient-brand: linear-gradient(90deg, #2367f1, #f124b3);
+  --font-heading: "Plus Jakarta Sans","DM Sans",sans-serif;
+  --font-body: "DM Sans",sans-serif;
+  --font-mono: "Fragment Mono","IBM Plex Mono",monospace;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fs-h1: 64px; --lh-h1: 1.2;
+  --fs-h2: 48px; --lh-h2: 1.2;
+  --fs-h3: 40px; --lh-h3: 1.3;
+  --fs-h4: 36px; --lh-h4: 1.3;
+  --fs-h5: 22px; --lh-h5: 1.4;
+  --fs-h6: 18px; --lh-h6: 1.4;
+  --fs-hero: clamp(40px,5.4vw,74px);
+  --lh-hero: 1.03;
+  --tracking-hero: -0.025em;
+  --fs-xl: 20px;
+  --fs-lg: 18px;
+  --fs-md: 16px;
+  --fs-sm: 14px;
+  --fs-xs: 12px;
+  --lh-body: 1.6;
+  --lh-tight: 1.2;
+  --badge-tracking: 0.28px;
+  --badge-size: 14px;
+  --heading-weight: 600;
+  --heading-tracking: -0.2px;
+}
+</style>
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .app *{font-family:'DM Sans',system-ui,sans-serif;}
+  .app h1,.app h2,.app h3,.app .jakarta{font-family:'Plus Jakarta Sans','DM Sans',sans-serif;}
+  .nav-item:hover{background:#f4f4f5 !important;}
+  .nav-item:hover .nav-ic{color:#141414 !important;}
+  .btn-blue:hover{background:#1f5cd8 !important;}
+  .btn-ghost:hover{background:#f4f4f5 !important;}
+  .btn-dark:hover{background:#000 !important;}
+  .card-hover:hover{border-color:#cdd3dd !important;box-shadow:0 8px 22px rgba(0,0,0,.07) !important;}
+  .lnk:hover{opacity:.72;}
+  .row-hover:hover{background:#fafafb !important;}
+  ::placeholder{color:#9ca3af;}
+  @keyframes autopulse{0%{box-shadow:0 0 0 0 rgba(200,241,35,.6);}70%{box-shadow:0 0 0 7px rgba(200,241,35,0);}100%{box-shadow:0 0 0 0 rgba(200,241,35,0);}}
+  @keyframes modalIn{from{opacity:0;transform:translateY(10px) scale(.99);}to{opacity:1;transform:translateY(0) scale(1);}}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+<div class="app" ref="{{ rootRef }}" onMouseEnter="{{ pauseAuto }}" onMouseLeave="{{ resumeAuto }}" style="display:flex;height:100vh;width:100%;background:#fff;color:#141414;overflow:hidden;font-size:14px;position:relative;">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside style="width:248px;flex:none;border-right:1px solid #ececec;display:flex;flex-direction:column;height:100%;background:#fff;">
+    <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #f2f2f2;">
+      <div style="width:28px;height:28px;background:#141414;color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.5px;">NS</div>
+      <span style="font-weight:600;font-size:14px;">Nextron Solu...</span>
+      <svg style="margin-left:2px;color:#9ca3af;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+      <svg style="margin-left:auto;color:#9ca3af;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg>
+    </div>
+    <div style="padding:12px 14px;">
+      <div style="border:1px solid #e6e6e6;border-radius:9px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+        <svg style="color:#6b7280;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        <div>
+          <div style="font-size:9px;letter-spacing:.7px;color:#9ca3af;font-weight:500;">SWITCH PRODUCT</div>
+          <div style="font-weight:600;font-size:13px;">Management</div>
+        </div>
+        <svg style="margin-left:auto;color:#9ca3af;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+      </div>
+    </div>
+    <div style="padding:0 14px 8px;">
+      <div style="display:flex;align-items:center;gap:8px;color:#2367f1;font-weight:500;font-size:13px;padding:7px 8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Getting started
+      </div>
+    </div>
+    <nav style="flex:1;overflow-y:auto;padding:4px 14px 16px;">
+      <sc-for list="{{ navGroups }}" as="group" hint-placeholder-count="4">
+        <div style="margin-top:14px;">
+          <div style="font-size:10px;letter-spacing:.7px;color:#b0b0b3;font-weight:600;padding:0 8px 6px;">{{ group.title }}</div>
+          <sc-for list="{{ group.items }}" as="it" hint-placeholder-count="3">
+            <div class="nav-item" data-auto="{{ it.auto }}" onClick="{{ it.onClick }}" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:13.5px;margin-bottom:1px;background:{{ it.bg }};color:{{ it.fg }};font-weight:{{ it.weight }};">
+              <span class="nav-ic" style="color:{{ it.icColor }};display:flex;" dangerouslySetInnerHTML="{{ it.icon }}"></span>
+              {{ it.label }}
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main style="flex:1;display:flex;flex-direction:column;height:100%;overflow:hidden;position:relative;min-width:0;">
+    <header style="height:60px;flex:none;border-bottom:1px solid #ececec;display:flex;align-items:center;justify-content:flex-end;gap:18px;padding:0 28px;">
+      <div style="display:flex;align-items:center;gap:6px;color:#6b7280;font-size:13.5px;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/></svg> Tasks
+      </div>
+      <svg style="color:#6b7280;cursor:pointer;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg style="color:#6b7280;cursor:pointer;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+      <div style="width:30px;height:30px;border-radius:50%;background:#8b5e3c;background-image:linear-gradient(135deg,#a16b45,#5b3a22);"></div>
+    </header>
+
+    <!-- ============ WELCOME ============ -->
+    <sc-if value="{{ pageWelcome }}" hint-placeholder-val="{{ true }}">
+    <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;padding:30px 36px 60px;">
+      <div style="position:relative;border:1px solid #ececec;border-radius:18px;padding:48px 52px;overflow:hidden;min-height:300px;display:flex;align-items:center;">
+        <div style="position:absolute;top:-60px;right:-40px;width:420px;height:320px;background:radial-gradient(circle at 70% 30%,rgba(35,103,241,.16),transparent 60%);pointer-events:none;"></div>
+        <div style="max-width:560px;position:relative;z-index:2;">
+          <h1 style="font-size:34px;font-weight:700;letter-spacing:-.7px;margin:0 0 18px;">Welcome to Partner Training</h1>
+          <p style="margin:0 0 30px;color:#5b6470;font-size:16px;line-height:1.6;max-width:520px;">Turn the decks and docs you already have into modules partners actually finish. Build one, assign it, and watch engagement, completion and certifications climb in real time.</p>
+          <div style="display:flex;gap:14px;">
+            <button class="btn-blue" data-auto="w-upload" onClick="{{ openWizard }}" style="display:flex;align-items:center;gap:10px;background:#2367f1;color:#fff;border:none;border-radius:11px;padding:0 22px;height:52px;font-size:15px;font-weight:600;cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.6 2.6M15.1 15.1l2.6 2.6M17.7 6.3l-2.6 2.6M8.9 15.1l-2.6 2.6"/></svg> Upload a file — AI drafts it</button>
+            <button class="btn-ghost" style="display:flex;align-items:center;gap:10px;background:#fff;color:#141414;border:1px solid #dcdcdc;border-radius:11px;padding:0 22px;height:52px;font-size:15px;font-weight:600;cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Create your first module</button>
+          </div>
+        </div>
+        <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);width:330px;height:240px;z-index:1;">
+          <div style="position:absolute;right:0;top:30px;width:250px;height:160px;background:#f3f4f7;border:1px solid #e8e9ee;border-radius:14px;transform:rotate(7deg);box-shadow:0 18px 40px rgba(0,0,0,.06);"></div>
+          <div style="position:absolute;right:30px;top:10px;width:250px;height:160px;background:#fff;border:1px solid #ececef;border-radius:14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(0,0,0,.08);padding:18px;">
+            <div style="width:34px;height:34px;border:1.5px solid #d8dae0;border-radius:7px;margin-bottom:14px;"></div>
+            <div style="width:78%;height:8px;border-radius:4px;background:#3b82f6;opacity:.35;margin-bottom:10px;"></div>
+            <div style="width:60%;height:7px;border-radius:4px;background:#e6e8ec;margin-bottom:8px;"></div>
+            <div style="width:90%;height:7px;border-radius:4px;background:#eef0f3;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:38px;">
+        <div style="font-size:11px;letter-spacing:.8px;color:#9ca3af;font-weight:600;margin-bottom:16px;">HOW IT WORKS</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+          <sc-for list="{{ howSteps }}" as="h" hint-placeholder-count="3">
+            <div style="border:1px solid #ececec;border-radius:16px;padding:24px 24px 26px;">
+              <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px;">
+                <span style="width:42px;height:42px;border-radius:11px;background:{{ h.tint }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ h.icon }}"></span>
+                <div><div style="font-size:10px;letter-spacing:.7px;color:#9ca3af;font-weight:600;">{{ h.step }}</div><div style="font-weight:700;font-size:17px;">{{ h.title }}</div></div>
+              </div>
+              <p style="margin:0 0 16px;color:#6b7280;font-size:14px;line-height:1.55;">{{ h.body }}</p>
+              <div dangerouslySetInnerHTML="{{ h.foot }}"></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ============ WIZARD ============ -->
+    <sc-if value="{{ pageWizard }}" hint-placeholder-val="x">
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0;">
+      <!-- wizard top bar -->
+      <div style="flex:none;border-bottom:1px solid #ececec;display:flex;align-items:center;gap:30px;padding:18px 30px;">
+        <div style="min-width:190px;">
+          <div style="font-weight:700;font-size:17px;">{{ wizTitle }}</div>
+          <div style="color:#9ca3af;font-size:13px;">Drafted by AI from your upload</div>
+        </div>
+        <sc-if value="{{ showStepper }}" hint-placeholder-val="x">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;max-width:620px;margin:0 auto;">
+          <sc-for list="{{ stepper }}" as="st" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;{{ st.flex }}">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                <div style="width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;background:{{ st.bg }};color:{{ st.fg }};border:{{ st.border }};" dangerouslySetInnerHTML="{{ st.inner }}"></div>
+                <div style="font-size:13px;font-weight:600;color:{{ st.labelFg }};">{{ st.label }}</div>
+              </div>
+            </div>
+            <sc-if value="{{ st.hasLine }}" hint-placeholder-val="x"><div style="flex:1;height:1.5px;background:#e6e6e6;margin:0 6px;align-self:flex-start;margin-top:17px;min-width:80px;"></div></sc-if>
+          </sc-for>
+        </div>
+        </sc-if>
+        <div style="margin-left:auto;width:34px;height:34px;border:1px solid #e6e6e6;border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;" onClick="{{ closeWizard }}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      </div>
+
+      <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;">
+        <!-- UPLOAD -->
+        <sc-if value="{{ isUpload }}" hint-placeholder-val="x">
+        <div style="max-width:820px;margin:0 auto;padding:46px 24px 30px;">
+          <h2 style="font-size:24px;font-weight:700;margin:0 0 8px;">Bring in your material</h2>
+          <p style="margin:0 0 30px;color:#6b7280;font-size:15px;line-height:1.55;max-width:660px;">A doc, a recorded session, or a link — anything you already use to ramp partners. The AI reads it all and drafts the module for you to review.</p>
+          <div style="border:2px dashed #b9cdf6;border-radius:14px;background:#fafbff;padding:42px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:64px;height:64px;border-radius:14px;background:#eaf0fe;display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2367f1" stroke-width="2"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></div>
+            <div style="font-size:16px;font-weight:600;margin-bottom:14px;">Drop files here, or <span style="color:#2367f1;text-decoration:underline;">browse</span></div>
+            <div style="display:flex;gap:10px;">
+              <span style="border:1px solid #e6e6e6;border-radius:7px;padding:6px 12px;font-size:12.5px;color:#6b7280;">PDF</span>
+              <span style="border:1px solid #e6e6e6;border-radius:7px;padding:6px 12px;font-size:12.5px;color:#6b7280;">PPT/ Keynote</span>
+              <span style="border:1px solid #e6e6e6;border-radius:7px;padding:6px 12px;font-size:12.5px;color:#6b7280;">DOCX</span>
+              <span style="border:1px solid #e6e6e6;border-radius:7px;padding:6px 12px;font-size:12.5px;color:#6b7280;">MP4</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;margin:30px 0;"><div style="flex:1;height:1px;background:#ececec;"></div><span style="color:#9ca3af;font-size:13px;font-weight:500;">OR</span><div style="flex:1;height:1px;background:#ececec;"></div></div>
+          <div style="font-weight:600;font-size:15px;margin-bottom:12px;">Import from URL</div>
+          <div style="display:flex;align-items:center;border:1px solid #e2e2e2;border-radius:11px;padding:0 18px;height:52px;margin-bottom:34px;">
+            <span style="flex:1;color:#9ca3af;font-size:14.5px;">Paste a YouTube, Vimeo or Loom link, LMS URL...</span>
+            <span style="color:#2367f1;font-size:14px;font-weight:600;cursor:pointer;">Upload</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div style="font-weight:700;font-size:16px;">Content items • {{ uploadCount }}</div>
+            <div style="color:#9ca3af;font-size:13.5px;">What you add will appear here</div>
+          </div>
+          <sc-if value="{{ uploaded }}" hint-placeholder-val="x">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ contentItems }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:16px;border:1px solid #ececec;border-radius:12px;padding:16px 18px;animation:fadeUp .35s ease both;">
+                <span style="width:46px;height:46px;border-radius:10px;background:{{ c.tint }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ c.icon }}"></span>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-weight:600;font-size:15px;margin-bottom:5px;">{{ c.name }}</div>
+                  <div style="font-size:13px;color:#9ca3af;"><span style="color:{{ c.tagFg }};font-weight:600;">{{ c.tag }}</span> {{ c.meta }}</div>
+                  <div style="font-size:13px;color:#16a34a;font-weight:600;margin-top:5px;">Completed</div>
+                </div>
+                <svg style="color:#dc2626;cursor:pointer;flex:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+          <sc-if value="{{ uploadEmpty }}" hint-placeholder-val="x">
+          <div style="display:flex;align-items:flex-start;gap:16px;border:1px solid #ececec;background:#fbfbfc;border-radius:12px;padding:18px;">
+            <span style="width:42px;height:42px;border-radius:10px;background:#f1f2f4;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 18l9 5 9-5"/></svg></span>
+            <div style="color:#6b7280;font-size:14px;line-height:1.5;padding-top:2px;">Add at least one source above to draft your module. Most teams start with a single onboarding PDF.</div>
+          </div>
+          </sc-if>
+          <div style="display:flex;align-items:center;gap:9px;margin-top:18px;color:#9ca3af;font-size:13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Your material stays private to your workspace. You review and edit everything before it goes live.</div>
+        </div>
+        </sc-if>
+
+        <!-- DRAFTING -->
+        <sc-if value="{{ isDrafting }}" hint-placeholder-val="x">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:520px;padding:40px;">
+          <h2 style="font-size:24px;font-weight:700;margin:0 0 8px;">Drafting your module...</h2>
+          <p style="margin:0 0 22px;color:#6b7280;font-size:15px;">This usually takes about 20 seconds.</p>
+          <div style="display:flex;gap:12px;margin-bottom:34px;">
+            <span style="display:flex;align-items:center;gap:7px;background:#fdecec;color:#dc2626;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> PDF</span>
+            <span style="display:flex;align-items:center;gap:7px;background:#e8f1fd;color:#2367f1;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg> MP4</span>
+            <span style="display:flex;align-items:center;gap:7px;background:#e8f6ed;color:#16a34a;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg> Web page</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <sc-for list="{{ draftSteps }}" as="d" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:14px;">
+                <span dangerouslySetInnerHTML="{{ d.icon }}"></span>
+                <span style="font-size:16px;font-weight:500;color:{{ d.fg }};">{{ d.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- REVIEW -->
+        <sc-if value="{{ isReview }}" hint-placeholder-val="x">
+        <div style="max-width:740px;margin:0 auto;padding:40px 24px 30px;">
+          <h2 style="font-size:24px;font-weight:700;margin:0 0 8px;">Review your draft</h2>
+          <p style="margin:0 0 28px;color:#6b7280;font-size:15px;line-height:1.55;">Everything below is editable. Tweak the title, drop a lesson, or fix a quiz answer — nothing is live until you assign it.</p>
+          <div style="font-weight:600;font-size:14px;margin-bottom:8px;">Module title</div>
+          <div style="border:1px solid #e2e2e2;border-radius:10px;padding:0 16px;height:48px;display:flex;align-items:center;font-size:15px;margin-bottom:22px;">Partner Onboarding Essentials</div>
+          <div style="font-weight:600;font-size:14px;margin-bottom:8px;">Category</div>
+          <div style="border:1px solid #e2e2e2;border-radius:10px;padding:0 16px;height:48px;display:flex;align-items:center;font-size:15px;margin-bottom:26px;">Onboarding<svg style="margin-left:auto;color:#9ca3af;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div style="display:flex;align-items:center;gap:7px;font-weight:600;font-size:14px;margin-bottom:12px;">Lessons <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#bcbcc2" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
+          <div style="border:1px solid #ececec;border-radius:12px;overflow:hidden;margin-bottom:26px;">
+            <sc-for list="{{ reviewLessons }}" as="l" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:14px;padding:16px 18px;border-bottom:{{ l.border }};">
+                <span style="color:#9ca3af;font-size:14px;font-weight:600;width:18px;">{{ l.n }}</span>
+                <span style="width:30px;height:30px;border-radius:8px;background:{{ l.tint }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ l.icon }}"></span>
+                <div style="flex:1;"><div style="font-weight:600;font-size:15px;">{{ l.title }}</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">{{ l.min }}</div></div>
+                <svg style="color:#c4c4c7;cursor:pointer;" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:7px;font-weight:600;font-size:14px;">Quiz <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#bcbcc2" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
+            <span class="lnk" style="display:flex;align-items:center;gap:6px;color:#2367f1;font-size:13.5px;font-weight:600;cursor:pointer;">Regenerate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v4h-4"/></svg></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <sc-for list="{{ reviewQuiz }}" as="q" hint-placeholder-count="3">
+              <div style="border:1px solid #ececec;border-radius:12px;padding:18px 18px;">
+                <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
+                  <svg style="color:#c4c4c7;margin-top:1px;" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg>
+                  <span style="color:#9ca3af;font-size:13px;font-weight:600;">{{ q.q }}</span>
+                  <span style="font-weight:600;font-size:15px;flex:1;">{{ q.question }}</span>
+                  <svg style="color:#c4c4c7;cursor:pointer;flex:none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </div>
+                <sc-for list="{{ q.options }}" as="o" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:11px;padding:7px 0 7px 27px;">
+                    <span style="width:18px;height:18px;border-radius:50%;border:2px solid {{ o.ring }};display:flex;align-items:center;justify-content:center;flex:none;"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.dot }};"></span></span>
+                    <span style="font-size:14px;color:{{ o.fg }};">{{ o.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ASSIGN -->
+        <sc-if value="{{ isAssign }}" hint-placeholder-val="x">
+        <div style="max-width:820px;margin:0 auto;padding:46px 24px 30px;">
+          <h2 style="font-size:24px;font-weight:700;margin:0 0 8px;">Assign to partners</h2>
+          <p style="margin:0 0 30px;color:#6b7280;font-size:15px;line-height:1.55;max-width:660px;">Choose which partner organisations get this module. They'll be notified, and you'll see their progress on the dashboard.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <div style="font-weight:600;font-size:16px;">Partner organisations</div>
+            <span class="lnk" style="color:#2367f1;font-size:14px;font-weight:600;cursor:pointer;">Select all</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:34px;">
+            <sc-for list="{{ assignPartners }}" as="p" hint-placeholder-count="8">
+              <div data-auto="{{ p.auto }}" onClick="{{ p.toggle }}" style="display:flex;align-items:center;gap:13px;border:1.5px solid {{ p.border }};background:{{ p.bg }};border-radius:12px;padding:16px 18px;cursor:pointer;transition:all .15s;">
+                <span style="width:30px;height:30px;border-radius:50%;background:{{ p.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex:none;">{{ p.initials }}</span>
+                <span style="font-weight:500;font-size:15px;color:{{ p.nameFg }};">{{ p.name }}</span>
+                <span style="margin-left:auto;width:20px;height:20px;border-radius:5px;border:2px solid {{ p.boxBorder }};background:{{ p.boxBg }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ p.check }}"></span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-weight:600;font-size:16px;margin-bottom:14px;">Completion due</div>
+          <div style="display:flex;gap:12px;">
+            <sc-for list="{{ dueOptions }}" as="d" hint-placeholder-count="5">
+              <div style="border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.fg }};border-radius:10px;padding:0 22px;height:48px;display:flex;align-items:center;font-size:14px;font-weight:{{ d.weight }};cursor:pointer;">{{ d.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- DONE -->
+        <sc-if value="{{ isDone }}" hint-placeholder-val="x">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:540px;padding:40px;text-align:center;">
+          <div style="width:88px;height:88px;margin-bottom:26px;animation:fadeUp .4s ease both;"><svg width="88" height="88" viewBox="0 0 24 24" fill="#16a34a"><path d="M12.01 2.011a3.2 3.2 0 0 1 2.113 .797l.154 .145l.698 .698a1.2 1.2 0 0 0 .71 .341l.135 .008h1a3.2 3.2 0 0 1 3.195 3.018l.005 .182v1c0 .27 .092 .533 .258 .743l.09 .101l.698 .698a3.2 3.2 0 0 1 .147 4.382l-.145 .154l-.698 .698a1.2 1.2 0 0 0 -.341 .71l-.008 .135v1a3.2 3.2 0 0 1 -3.018 3.195l-.182 .005h-1a1.2 1.2 0 0 0 -.743 .258l-.101 .09l-.698 .698a3.2 3.2 0 0 1 -4.382 .147l-.154 -.145l-.698 -.698a1.2 1.2 0 0 0 -.71 -.341l-.135 -.008h-1a3.2 3.2 0 0 1 -3.195 -3.018l-.005 -.182v-1a1.2 1.2 0 0 0 -.258 -.743l-.09 -.101l-.698 -.698a3.2 3.2 0 0 1 -.147 -4.382l.145 -.154l.698 -.698a1.2 1.2 0 0 0 .341 -.71l.008 -.135v-1l.005 -.182a3.2 3.2 0 0 1 3.013 -3.013l.182 -.005h1a1.2 1.2 0 0 0 .743 -.258l.101 -.09l.698 -.698a3.2 3.2 0 0 1 2.269 -.944z"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h2 style="font-size:30px;font-weight:700;margin:0 0 16px;letter-spacing:-.5px;">Your module is live!</h2>
+          <p style="margin:0 0 30px;color:#6b7280;font-size:16px;line-height:1.6;max-width:430px;">Partner Onboarding Essentials is now assigned to 5 partner organisations. They've been notified — watch the dashboard light up as they start learning.</p>
+          <button class="btn-blue" data-auto="go-dashboard" onClick="{{ goDashboard }}" style="display:flex;align-items:center;gap:10px;background:#2367f1;color:#fff;border:none;border-radius:11px;padding:0 26px;height:52px;font-size:15px;font-weight:600;cursor:pointer;">Go to dashboard <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        </sc-if>
+      </div>
+
+      <!-- wizard footer -->
+      <sc-if value="{{ showFooter }}" hint-placeholder-val="x">
+      <div style="flex:none;border-top:1px solid #ececec;display:flex;align-items:center;padding:16px 30px;">
+        <sc-if value="{{ isAssign }}" hint-placeholder-val="x">
+        <div style="display:flex;align-items:center;">
+          <sc-for list="{{ selectedAvatars }}" as="a" hint-placeholder-count="3">
+            <span style="width:30px;height:30px;border-radius:50%;background:{{ a.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border:2px solid #fff;margin-left:-8px;">{{ a.initials }}</span>
+          </sc-for>
+          <sc-if value="{{ hasMoreAvatars }}" hint-placeholder-val="x"><span style="width:30px;height:30px;border-radius:50%;background:#dfe3e8;color:#5b6470;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border:2px solid #fff;margin-left:-8px;">{{ moreCount }}</span></sc-if>
+        </div>
+        </sc-if>
+        <div style="margin-left:auto;display:flex;gap:12px;">
+          <button class="btn-ghost" onClick="{{ wizardBack }}" style="display:flex;align-items:center;gap:8px;border:1px solid #e2e2e2;background:#fff;border-radius:10px;padding:0 20px;height:46px;font-size:14px;font-weight:600;cursor:pointer;color:#141414;" dangerouslySetInnerHTML="{{ backBtn }}"></button>
+          <button class="btn-blue" data-auto="{{ primaryAuto }}" onClick="{{ wizardPrimary }}" style="display:flex;align-items:center;gap:9px;background:#2367f1;color:#fff;border:none;border-radius:10px;padding:0 22px;height:46px;font-size:14px;font-weight:600;cursor:pointer;" dangerouslySetInnerHTML="{{ primaryBtn }}"></button>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- ============ DASHBOARD ============ -->
+    <sc-if value="{{ pageDashboard }}" hint-placeholder-val="x">
+    <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;padding:26px 32px 60px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+        <div>
+          <h1 style="font-size:30px;font-weight:700;margin:0 0 6px;letter-spacing:-.6px;">Partner Training</h1>
+          <p style="margin:0;color:#6b7280;font-size:14.5px;">1 module live · assigned to 5 partner organisations</p>
+        </div>
+        <button class="btn-blue" data-auto="new-module" onClick="{{ openWizard }}" style="display:flex;align-items:center;gap:9px;background:#2367f1;color:#fff;border:none;border-radius:10px;padding:0 20px;height:44px;font-size:14px;font-weight:600;cursor:pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg> New module</button>
+      </div>
+
+      <div style="border:1px solid #ececec;border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;margin-bottom:24px;">
+        <sc-for list="{{ dashStats }}" as="m" hint-placeholder-count="4">
+          <div style="padding:20px 24px;border-left:{{ m.border }};">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="display:flex;align-items:center;gap:7px;color:#6b7280;font-size:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#16a34a;"></span>{{ m.label }}</span><svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="{{ m.spark }}" stroke="{{ m.sparkColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="font-size:28px;font-weight:700;letter-spacing:-.5px;">{{ m.value }}<span style="color:#c4c4c7;font-weight:600;font-size:18px;">{{ m.suffix }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+        <div style="display:flex;background:#f4f4f5;border-radius:10px;padding:4px;">
+          <button style="display:flex;align-items:center;gap:8px;border:none;border-radius:8px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer;background:#141414;color:#fff;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="13" height="13" rx="2"/><path d="M8 4V2h13v13h-2"/></svg> All modules</button>
+          <button style="display:flex;align-items:center;gap:8px;border:none;border-radius:8px;padding:9px 16px;font-size:13.5px;font-weight:500;cursor:pointer;background:transparent;color:#6b7280;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.3 3-5 7-5s7 1.7 7 5"/></svg> Created by me</button>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <button class="btn-ghost" style="display:flex;align-items:center;gap:8px;border:1px solid #e2e2e2;background:#fff;border-radius:10px;padding:0 16px;height:44px;font-size:14px;font-weight:500;cursor:pointer;color:#141414;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M3 5h18M6 12h12M10 19h4"/></svg> Filters</button>
+          <div style="display:flex;align-items:center;gap:9px;border:1px solid #e2e2e2;border-radius:10px;padding:0 16px;height:44px;width:300px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg><span style="color:#9ca3af;font-size:14px;">Search modules...</span></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="4">
+            <div class="card-hover" data-auto="{{ mod.auto }}" onClick="{{ mod.open }}" style="display:flex;gap:22px;border:1px solid #ececec;border-radius:16px;padding:20px;cursor:pointer;transition:all .15s;">
+              <div style="width:140px;height:130px;border-radius:12px;background:{{ mod.thumb }};display:flex;align-items:center;justify-content:center;flex:none;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+              <div style="flex:1;min-width:0;padding-top:4px;">
+                <div style="font-weight:700;font-size:19px;margin-bottom:8px;">{{ mod.title }}</div>
+                <p style="margin:0 0 16px;color:#6b7280;font-size:14.5px;line-height:1.5;">{{ mod.desc }}</p>
+                <div style="display:flex;align-items:center;margin-bottom:16px;">
+                  <sc-for list="{{ mod.avatars }}" as="a" hint-placeholder-count="3">
+                    <span style="width:26px;height:26px;border-radius:50%;background:{{ a.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;border:2px solid #fff;margin-left:-6px;">{{ a.initials }}</span>
+                  </sc-for>
+                </div>
+                <span style="display:inline-flex;align-items:center;gap:7px;background:{{ mod.tagBg }};color:{{ mod.tagFg }};border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18l5-6 4 3 6-8"/></svg> {{ mod.tag }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div style="border:1px solid #ececec;border-radius:16px;padding:20px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+              <div style="display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d18b1e" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg> Top partners</div>
+              <span class="lnk" style="color:#2367f1;font-size:13px;font-weight:600;cursor:pointer;">View details</span>
+            </div>
+            <sc-for list="{{ topPartners }}" as="t" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+                <span style="color:#9ca3af;font-size:13px;font-weight:600;width:12px;">{{ t.rank }}</span>
+                <span style="width:34px;height:34px;border-radius:50%;background:{{ t.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex:none;">{{ t.initials }}</span>
+                <div style="flex:1;"><div style="font-weight:600;font-size:14.5px;">{{ t.name }}</div><div style="color:#9ca3af;font-size:12.5px;">{{ t.score }}</div></div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d18b1e" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg>
+              </div>
+            </sc-for>
+            <div style="border-top:1px solid #f1f1f1;margin:14px 0 8px;"></div>
+            <div style="display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#dc2626;"></span> Needs a nudge</div>
+            <sc-for list="{{ needsNudge }}" as="n" hint-placeholder-count="2">
+              <div style="display:flex;align-items:center;gap:12px;padding:8px 0;">
+                <span style="width:34px;height:34px;border-radius:50%;background:{{ n.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex:none;">{{ n.initials }}</span>
+                <div style="flex:1;"><div style="font-weight:600;font-size:14.5px;">{{ n.name }}</div><div style="color:#dc2626;font-size:12.5px;">{{ n.status }}</div></div>
+                <button class="btn-ghost" data-auto="{{ n.auto }}" onClick="{{ n.nudge }}" style="border:1px solid #e2e2e2;background:#fff;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;color:#141414;">Nudge</button>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ============ DETAIL ============ -->
+    <sc-if value="{{ pageDetail }}" hint-placeholder-val="x">
+    <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;padding:26px 32px 70px;">
+      <div style="display:flex;align-items:center;gap:8px;color:#9ca3af;font-size:13.5px;margin-bottom:14px;"><span class="lnk" data-auto="crumb-back" onClick="{{ backToDashboard }}" style="cursor:pointer;">Partner training</span> / <span style="color:#141414;font-weight:600;">Partner Onboarding Essentials</span></div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;">
+        <div style="max-width:560px;">
+          <h1 style="font-size:28px;font-weight:700;margin:0 0 8px;letter-spacing:-.5px;">Partner Onboarding Essentials</h1>
+          <p style="margin:0;color:#6b7280;font-size:15px;line-height:1.5;">The first mile — accounts, access, and how partners reach first value fast. 5 lessons and a 3-question quiz.</p>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <button class="btn-ghost" style="display:flex;align-items:center;gap:8px;border:1px solid #e2e2e2;background:#fff;border-radius:10px;padding:0 18px;height:44px;font-size:14px;font-weight:600;cursor:pointer;color:#141414;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 4l2 2 4-4"/></svg> Assign</button>
+          <button class="btn-blue" style="display:flex;align-items:center;gap:8px;background:#2367f1;color:#fff;border:none;border-radius:10px;padding:0 18px;height:44px;font-size:14px;font-weight:600;cursor:pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Edit module</button>
+        </div>
+      </div>
+
+      <div style="border:1px solid #ececec;border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;margin-bottom:24px;">
+        <sc-for list="{{ detailStats }}" as="m" hint-placeholder-count="4">
+          <div style="padding:20px 24px;border-left:{{ m.border }};">
+            <div style="display:flex;align-items:center;gap:7px;color:#6b7280;font-size:14px;margin-bottom:12px;"><span style="width:8px;height:8px;border-radius:50%;background:#16a34a;"></span>{{ m.label }}</div>
+            <div style="font-size:28px;font-weight:700;letter-spacing:-.5px;">{{ m.value }}<span style="color:#c4c4c7;font-weight:600;font-size:18px;">{{ m.suffix }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;background:#f4f4f5;border-radius:10px;padding:4px;width:fit-content;margin-bottom:24px;">
+        <sc-for list="{{ detailTabs }}" as="tb" hint-placeholder-count="3">
+          <button data-auto="{{ tb.auto }}" onClick="{{ tb.go }}" style="display:flex;align-items:center;gap:8px;border:none;border-radius:8px;padding:9px 18px;font-size:13.5px;font-weight:600;cursor:pointer;background:{{ tb.bg }};color:{{ tb.fg }};" dangerouslySetInnerHTML="{{ tb.html }}"></button>
+        </sc-for>
+      </div>
+
+      <!-- CURRICULUM TAB -->
+      <sc-if value="{{ tabCurriculum }}" hint-placeholder-val="x">
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:22px;">
+          <div style="border:1px solid #ececec;border-radius:16px;padding:20px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <div><span style="font-weight:700;font-size:16px;">Curriculum</span> <span style="color:#9ca3af;font-size:13px;margin-left:8px;">5 lessons · drag to reorder</span></div>
+              <button class="btn-ghost" style="display:flex;align-items:center;gap:7px;border:1px solid #e2e2e2;background:#fff;border-radius:9px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;color:#141414;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg> Add new content</button>
+            </div>
+            <sc-for list="{{ curriculum }}" as="c" hint-placeholder-count="5">
+              <div class="row-hover" style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-top:{{ c.border }};">
+                <svg style="color:#cdcdd2;cursor:grab;flex:none;" width="12" height="18" viewBox="0 0 12 18" fill="currentColor"><circle cx="3" cy="3" r="1.5"/><circle cx="9" cy="3" r="1.5"/><circle cx="3" cy="9" r="1.5"/><circle cx="9" cy="9" r="1.5"/><circle cx="3" cy="15" r="1.5"/><circle cx="9" cy="15" r="1.5"/></svg>
+                <span style="color:#9ca3af;font-size:13px;font-weight:600;width:18px;">{{ c.n }}</span>
+                <span style="width:32px;height:32px;border-radius:8px;background:{{ c.tint }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ c.icon }}"></span>
+                <div style="flex:1;min-width:0;"><div style="font-weight:600;font-size:14.5px;">{{ c.title }}</div><div style="color:#9ca3af;font-size:12.5px;margin-top:2px;">{{ c.meta }}</div></div>
+                <div style="width:130px;height:7px;border-radius:4px;background:#eef0f2;overflow:hidden;flex:none;"><div style="height:100%;border-radius:4px;width:{{ c.pct }};background:{{ c.color }};"></div></div>
+                <span style="font-weight:600;font-size:14px;width:42px;text-align:right;">{{ c.pct }}</span>
+                <svg style="color:#9ca3af;flex:none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="border:1px solid #ececec;border-radius:16px;padding:20px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <div><span style="font-weight:700;font-size:16px;">Knowledge check</span></div>
+              <button class="btn-ghost" style="display:flex;align-items:center;gap:7px;border:1px solid #e2e2e2;background:#fff;border-radius:9px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;color:#141414;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Edit quiz</button>
+            </div>
+            <div style="color:#9ca3af;font-size:13px;margin-bottom:14px;">5 questions · pass at 70% · <span style="color:#141414;font-weight:600;">81% pass rate</span></div>
+            <sc-for list="{{ knowledge }}" as="k" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:14px;padding:13px 6px;border-top:{{ k.border }};">
+                <svg style="color:#cdcdd2;flex:none;" width="12" height="18" viewBox="0 0 12 18" fill="currentColor"><circle cx="3" cy="3" r="1.5"/><circle cx="9" cy="3" r="1.5"/><circle cx="3" cy="9" r="1.5"/><circle cx="9" cy="9" r="1.5"/><circle cx="3" cy="15" r="1.5"/><circle cx="9" cy="15" r="1.5"/></svg>
+                <span style="color:#9ca3af;font-size:13px;font-weight:600;width:20px;flex:none;">{{ k.q }}</span>
+                <div style="flex:1;min-width:0;"><div style="font-weight:500;font-size:14.5px;">{{ k.question }}</div><sc-if value="{{ k.hasNote }}" hint-placeholder-val="x"><div style="color:#dc2626;font-size:12.5px;margin-top:3px;">{{ k.note }}</div></sc-if></div>
+                <div style="width:120px;height:7px;border-radius:4px;background:#eef0f2;overflow:hidden;flex:none;"><div style="height:100%;border-radius:4px;width:{{ k.pct }};background:{{ k.color }};"></div></div>
+                <span style="font-size:13px;color:#6b7280;width:60px;text-align:right;flex:none;">{{ k.pct }}<br>correct</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div style="border:1px solid #ececec;border-radius:16px;padding:20px 22px;">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px;"><div style="font-weight:700;font-size:15px;">Learner journey</div><span style="color:#9ca3af;font-size:12px;">18 learners in</span></div>
+            <div style="color:#9ca3af;font-size:13px;margin-bottom:18px;">How far learners get, lesson by lesson.</div>
+            <sc-for list="{{ learnerJourney }}" as="lj" hint-placeholder-count="5">
+              <div style="margin-bottom:14px;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:13px;font-weight:600;color:#6b7280;width:20px;flex:none;">{{ lj.label }}</span>
+                  <div style="flex:1;height:26px;border-radius:7px;background:#eef0f2;overflow:hidden;position:relative;"><div style="height:100%;border-radius:7px;width:{{ lj.w }};background:{{ lj.color }};display:flex;align-items:center;padding-left:10px;color:#fff;font-size:12.5px;font-weight:700;">{{ lj.val }}</div></div>
+                  <span style="font-size:12.5px;color:#dc2626;font-weight:600;width:26px;text-align:right;flex:none;">{{ lj.delta }}</span>
+                </div>
+                <sc-if value="{{ lj.hasNote }}" hint-placeholder-val="x"><div style="display:flex;align-items:center;gap:6px;color:#dc2626;font-size:12px;margin:6px 0 0 32px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 21h20z"/><path d="M12 9v5M12 17h.01"/></svg> {{ lj.note }}</div></sc-if>
+              </div>
+            </sc-for>
+            <div style="border-top:1px solid #f1f1f1;margin:14px 0 0;padding-top:14px;display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d18b1e" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg><span style="font-weight:600;font-size:14px;">Certified</span><span style="margin-left:auto;font-weight:700;font-size:15px;">6</span></div>
+          </div>
+
+          <div style="border:1px solid #f0e6f5;border-radius:16px;padding:20px 22px;background:linear-gradient(180deg,#fbf6fd,#fff 60%);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.6 2.6M15.1 15.1l2.6 2.6M17.7 6.3l-2.6 2.6M8.9 15.1l-2.6 2.6"/></svg> Airstride AI</div><span style="color:#9ca3af;font-size:12px;">updated 1h ago</span></div>
+            <sc-for list="{{ aiInsights }}" as="ai" hint-placeholder-count="2">
+              <div style="background:#fff;border:1px solid #efe9f3;border-radius:11px;padding:14px 15px;margin-bottom:12px;">
+                <div style="font-weight:600;font-size:14px;margin-bottom:6px;">{{ ai.title }}</div>
+                <div style="color:#6b7280;font-size:13px;line-height:1.5;">{{ ai.body }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- PARTNERS TAB -->
+      <sc-if value="{{ tabPartners }}" hint-placeholder-val="x">
+      <div style="border:1px solid #ececec;border-radius:16px;padding:18px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+          <div style="display:flex;background:#f4f4f5;border-radius:10px;padding:4px;">
+            <sc-for list="{{ partnerFilters }}" as="pf" hint-placeholder-count="4">
+              <button style="border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;background:{{ pf.bg }};color:{{ pf.fg }};">{{ pf.label }}</button>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <div style="display:flex;align-items:center;gap:9px;border:1px solid #e2e2e2;border-radius:10px;padding:0 14px;height:42px;width:270px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg><span style="color:#9ca3af;font-size:13.5px;">Search partners...</span></div>
+            <button style="display:flex;align-items:center;gap:8px;background:#141414;color:#fff;border:none;border-radius:10px;padding:0 16px;height:42px;font-size:13.5px;font-weight:600;cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M19 8v6M16 11h6"/></svg> Assign partners</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.6fr 1.6fr .7fr .8fr .9fr;padding:0 8px 12px;border-bottom:1px solid #ececec;font-size:11px;letter-spacing:.6px;color:#9ca3af;font-weight:600;">
+          <span>PARTNER</span><span>PROGRESS</span><span>QUIZ AVG</span><span>STATUS</span><span>LAST ACTIVITY</span>
+        </div>
+        <sc-for list="{{ detailPartners }}" as="p" hint-placeholder-count="6">
+          <div class="row-hover" style="display:grid;grid-template-columns:1.6fr 1.6fr .7fr .8fr .9fr;align-items:center;padding:14px 8px;border-bottom:1px solid #f4f4f5;">
+            <div style="display:flex;align-items:center;gap:12px;"><span style="width:34px;height:34px;border-radius:50%;background:{{ p.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex:none;">{{ p.initials }}</span><div><div style="font-weight:600;font-size:14.5px;">{{ p.name }}</div><div style="color:#9ca3af;font-size:12.5px;">{{ p.learners }}</div></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding-right:18px;"><div style="flex:1;height:7px;border-radius:4px;background:#eef0f2;overflow:hidden;"><div style="height:100%;border-radius:4px;width:{{ p.pct }};background:{{ p.barColor }};"></div></div><span style="font-weight:600;font-size:13.5px;">{{ p.pct }}</span></div>
+            <span style="font-size:14px;">{{ p.quiz }}</span>
+            <span><span style="display:inline-flex;background:{{ p.statusBg }};color:{{ p.statusFg }};border-radius:20px;padding:4px 12px;font-size:12.5px;font-weight:600;">{{ p.status }}</span></span>
+            <div style="display:flex;align-items:center;justify-content:space-between;color:#6b7280;font-size:13.5px;">{{ p.last }}<svg style="color:#c4c4c7;cursor:pointer;" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></div>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+
+      <!-- SETTINGS TAB -->
+      <sc-if value="{{ tabSettings }}" hint-placeholder-val="x">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:22px;">
+          <div style="border:1px solid #ececec;border-radius:16px;padding:22px 24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;"><span style="width:30px;height:30px;border-radius:8px;background:#ffedf8;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f124b3" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span><span style="font-weight:700;font-size:16px;">Certification</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid #f1f1f1;">
+              <div><div style="font-weight:600;font-size:14.5px;">Issue a certificate on completion</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Partners earn a shareable badge when they finish and pass</div></div>
+              <div style="width:46px;height:26px;border-radius:20px;background:#2367f1;flex:none;position:relative;"><span style="position:absolute;top:3px;left:23px;width:20px;height:20px;border-radius:50%;background:#fff;"></span></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid #f1f1f1;">
+              <div><div style="font-weight:600;font-size:14.5px;">Passing score</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Minimum quiz score required to certify</div></div>
+              <div style="border:1px solid #e2e2e2;border-radius:9px;padding:8px 14px;display:flex;align-items:center;gap:14px;font-size:14px;font-weight:600;">70% <svg style="color:#9ca3af;" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 0 22px;border-bottom:1px solid #f1f1f1;">
+              <div><div style="font-weight:600;font-size:14.5px;">Certificate validity</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Learners re-certify when it expires</div></div>
+              <div style="border:1px solid #e2e2e2;border-radius:9px;padding:8px 14px;display:flex;align-items:center;gap:14px;font-size:14px;font-weight:600;">12 months <svg style="color:#9ca3af;" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div style="font-size:11px;letter-spacing:.6px;color:#9ca3af;font-weight:600;margin:20px 0 14px;">CERTIFICATE DESIGN</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;">
+              <sc-for list="{{ certDesigns }}" as="cd" hint-placeholder-count="3">
+                <div style="border:1.5px solid {{ cd.border }};border-radius:12px;padding:10px;cursor:pointer;background:#fff;">
+                  <div style="height:96px;border-radius:8px;background:#f6f7f9;display:flex;overflow:hidden;margin-bottom:10px;position:relative;" dangerouslySetInnerHTML="{{ cd.thumb }}"></div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;font-size:13.5px;">{{ cd.name }}</span><span style="width:18px;height:18px;border-radius:50%;border:2px solid {{ cd.radio }};display:flex;align-items:center;justify-content:center;" dangerouslySetInnerHTML="{{ cd.radioInner }}"></span></div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:30px;margin-bottom:22px;">
+              <div><div style="font-weight:600;font-size:13.5px;margin-bottom:10px;">Airstride's brand colour</div><div style="display:flex;gap:10px;"><span style="width:24px;height:24px;border-radius:50%;background:#4f8df9;border:2px solid #fff;box-shadow:0 0 0 2px #4f8df9;"></span><span style="width:24px;height:24px;border-radius:50%;background:#9333ea;"></span><span style="width:24px;height:24px;border-radius:50%;background:#f43f5e;"></span><span style="width:24px;height:24px;border-radius:50%;background:#14b8a6;"></span><span style="width:24px;height:24px;border-radius:50%;background:#141414;"></span></div></div>
+              <div style="flex:1;"><div style="font-weight:600;font-size:13.5px;margin-bottom:10px;">Authorised signatory*</div><div style="border:1px solid #e2e2e2;border-radius:9px;padding:0 14px;height:42px;display:flex;align-items:center;color:#9ca3af;font-size:13.5px;">E.g Alex Morgan, Head of partnerships</div></div>
+            </div>
+            <div style="background:#f8f9fb;border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+              <div style="display:flex;align-items:center;gap:8px;color:#6b7280;font-size:13px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg> Your organisation logo is added automatically.</div>
+              <button class="btn-dark" data-auto="preview-cert" onClick="{{ openCert }}" style="display:flex;align-items:center;gap:8px;background:#141414;color:#fff;border:none;border-radius:9px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> Preview certificate</button>
+            </div>
+          </div>
+
+          <div style="border:1px solid #ececec;border-radius:16px;padding:22px 24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;"><span style="width:30px;height:30px;border-radius:8px;background:#e8effe;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2367f1" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><span style="font-weight:700;font-size:16px;">Schedule &amp; reminders</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid #f1f1f1;">
+              <div><div style="font-weight:600;font-size:14.5px;">Issue a certificate on completion</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Email a recap to learners who aren't done</div></div>
+              <div style="border:1px solid #e2e2e2;border-radius:9px;padding:8px 14px;display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:600;">14 days after assignment <svg style="color:#9ca3af;" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid #f1f1f1;">
+              <div><div style="font-weight:600;font-size:14.5px;">Weekly reminder</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Email a recap to learners who aren't done</div></div>
+              <div style="width:46px;height:26px;border-radius:20px;background:#2367f1;flex:none;position:relative;"><span style="position:absolute;top:3px;left:23px;width:20px;height:20px;border-radius:50%;background:#fff;"></span></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:18px;">
+              <div><div style="font-weight:600;font-size:14.5px;">Alert me when a partner stalls</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Get a nudge when there's no progress for 5+ days.</div></div>
+              <div style="width:46px;height:26px;border-radius:20px;background:#2367f1;flex:none;position:relative;"><span style="position:absolute;top:3px;left:23px;width:20px;height:20px;border-radius:50%;background:#fff;"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:22px;">
+          <div style="border:1px solid #ececec;border-radius:16px;padding:22px 24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;"><span style="width:30px;height:30px;border-radius:8px;background:#eef0f3;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span style="font-weight:700;font-size:16px;">Access</span></div>
+            <sc-for list="{{ accessOptions }}" as="ao" hint-placeholder-count="3">
+              <div style="display:flex;align-items:flex-start;gap:13px;border:1.5px solid {{ ao.border }};background:{{ ao.bg }};border-radius:12px;padding:14px 16px;margin-bottom:12px;cursor:pointer;">
+                <span style="width:30px;height:30px;border-radius:8px;background:{{ ao.tint }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ ao.icon }}"></span>
+                <div style="flex:1;"><div style="font-weight:600;font-size:14.5px;">{{ ao.title }}</div><div style="color:#9ca3af;font-size:12.5px;margin-top:2px;">{{ ao.desc }}</div></div>
+                <span style="width:20px;height:20px;border-radius:50%;border:2px solid {{ ao.radio }};display:flex;align-items:center;justify-content:center;flex:none;" dangerouslySetInnerHTML="{{ ao.radioInner }}"></span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="border:1px solid #f4d3d3;border-radius:16px;padding:22px 24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;"><span style="width:30px;height:30px;border-radius:8px;background:#fdecec;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M12 2 2 21h20z"/><path d="M12 9v5M12 17h.01"/></svg></span><span style="font-weight:700;font-size:16px;">Danger zone</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;"><div><div style="font-weight:600;font-size:14.5px;">Unpublish module</div><div style="color:#9ca3af;font-size:13px;margin-top:2px;">Hides it from partners; progress is kept.</div></div><button style="border:1px solid #f0bcbc;background:#fff;color:#dc2626;border-radius:9px;padding:9px 18px;font-size:13.5px;font-weight:600;cursor:pointer;">Unpublish</button></div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+  </main>
+
+  <!-- ===== NUDGE MODAL ===== -->
+  <sc-if value="{{ nudgeOpen }}" hint-placeholder-val="x">
+  <div style="position:fixed;inset:0;background:rgba(20,20,20,.4);display:flex;align-items:center;justify-content:center;z-index:60;padding:24px;">
+    <div style="background:#fff;border-radius:16px;width:600px;max-width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);animation:modalIn .25s ease;padding:26px 28px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;"><h3 style="font-size:20px;font-weight:700;margin:0;">Send a nudge</h3><svg onClick="{{ closeNudge }}" style="cursor:pointer;color:#6b7280;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;"><span style="color:#6b7280;font-size:14px;">To</span><span style="display:inline-flex;align-items:center;gap:8px;background:#eef0f5;border-radius:20px;padding:5px 12px 5px 6px;font-size:13.5px;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:#6366f1;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;">KN</span> Kinetic Retail</span></div>
+      <div style="border:1px solid #e2e2e2;border-radius:12px;padding:16px 18px;position:relative;margin-bottom:22px;">
+        <p style="margin:0;color:#374151;font-size:14.5px;line-height:1.6;">Hi — quick reminder that "Technical Specifications" is waiting for your team. Most partners finish it in under 40 minutes, and it unlocks your certification. Anything blocking you?</p>
+        <span style="display:inline-flex;align-items:center;gap:7px;background:#f3e8ff;color:#9333ea;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;margin-top:16px;cursor:pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.6 2.6M15.1 15.1l2.6 2.6"/></svg> Rewrite with AI</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;color:#374151;font-size:14px;font-weight:600;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg> Send via</div>
+      <div style="display:flex;gap:28px;margin-bottom:26px;">
+        <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:14px;color:#374151;">Email</span><div style="width:40px;height:23px;border-radius:20px;background:#2367f1;position:relative;"><span style="position:absolute;top:3px;left:20px;width:17px;height:17px;border-radius:50%;background:#fff;"></span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:14px;color:#374151;">In-app</span><div style="width:40px;height:23px;border-radius:20px;background:#2367f1;position:relative;"><span style="position:absolute;top:3px;left:20px;width:17px;height:17px;border-radius:50%;background:#fff;"></span></div></div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:12px;">
+        <button class="btn-ghost" onClick="{{ closeNudge }}" style="border:1px solid #e2e2e2;background:#fff;border-radius:10px;padding:0 20px;height:44px;font-size:14px;font-weight:600;cursor:pointer;color:#141414;">Cancel</button>
+        <button class="btn-blue" data-auto="send-nudge" onClick="{{ closeNudge }}" style="display:flex;align-items:center;gap:8px;background:#2367f1;color:#fff;border:none;border-radius:10px;padding:0 22px;height:44px;font-size:14px;font-weight:600;cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg> Send nudge</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===== CERTIFICATE MODAL ===== -->
+  <sc-if value="{{ certOpen }}" hint-placeholder-val="x">
+  <div style="position:fixed;inset:0;background:rgba(20,20,20,.4);display:flex;align-items:center;justify-content:center;z-index:60;padding:24px;">
+    <div style="background:#fff;border-radius:16px;width:880px;max-width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);animation:modalIn .25s ease;padding:24px 26px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+        <div style="display:flex;align-items:center;gap:12px;"><span style="width:34px;height:34px;border-radius:8px;background:#141414;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span><div><div style="font-weight:700;font-size:17px;">Certificate preview</div><div style="color:#9ca3af;font-size:13px;">Modern template · sample learner</div></div></div>
+        <svg onClick="{{ closeCert }}" style="cursor:pointer;color:#6b7280;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </div>
+      <div style="display:flex;border-radius:12px;overflow:hidden;border:1px solid #ececec;box-shadow:0 10px 30px rgba(0,0,0,.06);margin-bottom:22px;">
+        <div style="width:240px;background:#4f8df9;color:#fff;padding:26px 24px;display:flex;flex-direction:column;flex:none;">
+          <div style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;color:#4f8df9;font-weight:700;font-size:18px;margin-bottom:8px;">S</div>
+          <div style="font-size:13px;margin-bottom:auto;opacity:.95;">Stripe</div>
+          <div style="font-size:11px;letter-spacing:.7px;opacity:.85;margin-bottom:4px;">CERTIFICATE</div>
+          <div style="font-size:20px;font-weight:700;margin-bottom:26px;">of completion</div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9" stroke="#4f8df9" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="flex:1;padding:30px 32px;display:flex;flex-direction:column;">
+          <div style="color:#9ca3af;font-size:13px;margin-bottom:8px;">This certifies that</div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:-.5px;margin-bottom:18px;">John Doe</div>
+          <div style="color:#374151;font-size:14px;margin-bottom:4px;">Has successfully completed</div>
+          <div style="color:#2367f1;font-size:17px;font-weight:700;margin-bottom:4px;">Partner Onboarding Essentials</div>
+          <div style="color:#9ca3af;font-size:13px;margin-bottom:auto;">Passing score 70%</div>
+          <div style="display:flex;gap:40px;margin-top:40px;">
+            <div style="flex:1;border-top:1px solid #d8d8dd;padding-top:8px;"><div style="font-weight:600;font-size:13.5px;">Alex Morgan, Head of Partnerships</div><div style="color:#9ca3af;font-size:12px;">Authorised signatory</div></div>
+            <div style="flex:1;border-top:1px solid #d8d8dd;padding-top:8px;text-align:right;"><div style="font-weight:600;font-size:13.5px;">16 June 2026</div><div style="color:#9ca3af;font-size:12px;">Valid until 16 June 2027</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:8px;color:#9ca3af;font-size:13px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg> A preview of what your partners will see</div>
+        <div style="display:flex;gap:12px;">
+          <button class="btn-ghost" data-auto="close-cert" onClick="{{ closeCert }}" style="border:1px solid #e2e2e2;background:#fff;border-radius:10px;padding:0 20px;height:44px;font-size:14px;font-weight:600;cursor:pointer;color:#141414;">Close</button>
+          <button class="btn-blue" style="display:flex;align-items:center;gap:8px;background:#2367f1;color:#fff;border:none;border-radius:10px;padding:0 20px;height:44px;font-size:14px;font-weight:600;cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===== AUTOPILOT CURSOR ===== -->
+  <div ref="{{ rippleRef }}" style="position:fixed;left:0;top:0;width:0;height:0;border-radius:50%;border:2px solid #2367f1;pointer-events:none;z-index:998;opacity:0;will-change:transform,width,height,opacity;"></div>
+  <div ref="{{ cursorRef }}" style="position:fixed;left:0;top:0;width:24px;height:24px;pointer-events:none;z-index:999;transform:translate(-100px,-100px);will-change:transform;transition:opacity .25s;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#141414" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" style="filter:drop-shadow(0 2px 5px rgba(0,0,0,.4));"><path d="M5 3l14.5 8.2-6.1 1.5-2.9 6z"/></svg>
+  </div>
+  <div style="position:fixed;right:18px;bottom:18px;z-index:997;display:flex;align-items:center;gap:8px;background:#141414;color:#fff;border-radius:30px;padding:8px 14px;font-size:11px;font-weight:600;letter-spacing:.6px;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,.22);">
+    <span style="width:7px;height:7px;border-radius:50%;background:#c8f123;animation:autopulse 1.6s ease-out infinite;"></span> AUTO DEMO
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    page:'welcome', wstep:'upload', uploaded:false, draftStep:0,
+    assigned:{}, tab:'curriculum', nudgeOpen:false, certOpen:false
+  };
+
+  ic(svg){ return { __html: svg }; }
+
+  componentDidMount(){
+    this.cx = window.innerWidth*0.5; this.cy = window.innerHeight*0.45;
+    if(this.cursorEl) this.cursorEl.style.transform='translate('+this.cx+'px,'+this.cy+'px)';
+    this.playing = true; this.paused = false;
+    this.script = [
+      { auto:'w-upload',     act:()=>this.openWizardAct(),                         wait:2600 },
+      { auto:'draft-module', act:()=>this.startDraft(),                            wait:5200 },
+      { auto:'review-continue', act:()=>this.setState({wstep:'assign'}), scroll:0, wait:1700 },
+      { auto:'assign-mc',    act:()=>this.togglePartner('mc'),                     wait:550 },
+      { auto:'assign-nb',    act:()=>this.togglePartner('nb'),                     wait:550 },
+      { auto:'assign-cc',    act:()=>this.togglePartner('cc'),                     wait:550 },
+      { auto:'assign-pg',    act:()=>this.togglePartner('pg'),                     wait:550 },
+      { auto:'assign-kn',    act:()=>this.togglePartner('kn'),                     wait:1100 },
+      { auto:'publish',      act:()=>this.setState({wstep:'done'}),               wait:2400 },
+      { auto:'go-dashboard', act:()=>this.goDashboardAct(),                        wait:2000 },
+      { auto:'nudge-kn',     act:()=>this.setState({nudgeOpen:true}),             wait:2200 },
+      { auto:'send-nudge',   act:()=>this.setState({nudgeOpen:false}),            wait:1500 },
+      { auto:'open-module',  act:()=>this.openDetailAct(),                         wait:2600 },
+      { auto:'tab-partners', act:()=>this.setState({tab:'partners'}), scroll:0,   wait:2400 },
+      { auto:'tab-settings', act:()=>this.setState({tab:'settings'}), scroll:0,   wait:1900 },
+      { auto:'preview-cert', act:()=>this.setState({certOpen:true}), scroll:560,  wait:2400 },
+      { auto:'close-cert',   act:()=>this.setState({certOpen:false}),             wait:1500 },
+      { auto:'nav-training', act:()=>this.resetToWelcome(),                        wait:2200 }
+    ];
+    this.runLoop();
+  }
+  componentWillUnmount(){ this.playing=false; clearTimeout(this._t); clearInterval(this._iv); clearInterval(this._draft); }
+
+  openWizardAct(){ this.setState({page:'wizard',wstep:'upload',uploaded:false,assigned:{},certOpen:false,nudgeOpen:false}); this._t2=setTimeout(()=>{ if(this.playing) this.setState({uploaded:true}); }, 900); }
+  startDraft(){
+    this.setState({wstep:'drafting',draftStep:0});
+    let i=0; clearInterval(this._draft);
+    this._draft=setInterval(()=>{
+      i++;
+      if(i>=4){ clearInterval(this._draft); this.setState({draftStep:4}); setTimeout(()=>{ if(this.playing) this.setState({wstep:'review'}); }, 800); }
+      else this.setState({draftStep:i});
+    }, 880);
+  }
+  goDashboardAct(){ this.setState({page:'dashboard'}); if(this.scrollEl) this.scrollEl.scrollTop=0; }
+  openDetailAct(){ this.setState({page:'detail',tab:'curriculum'}); if(this.scrollEl) this.scrollEl.scrollTop=0; }
+  resetToWelcome(){ this.setState({page:'welcome',wstep:'upload',uploaded:false,assigned:{},tab:'curriculum',nudgeOpen:false,certOpen:false}); }
+  togglePartner(k){ this.setState(s=>({ assigned:{...s.assigned,[k]:!s.assigned[k]} })); }
+
+  sleep(ms){ return new Promise(r=>{ this._t=setTimeout(r,ms); }); }
+  animScroll(to){
+    if(!this.scrollEl) return;
+    const el=this.scrollEl, from=el.scrollTop, t0=Date.now(), dur=420;
+    clearInterval(this._sv);
+    this._sv=setInterval(()=>{
+      let t=Math.min(1,(Date.now()-t0)/dur); const e=1-Math.pow(1-t,3);
+      el.scrollTop=from+(to-from)*e;
+      if(t>=1) clearInterval(this._sv);
+    },16);
+  }
+
+  tween(x,y,dur){
+    const sx=this.cx, sy=this.cy, t0=Date.now();
+    return new Promise(res=>{
+      clearInterval(this._iv);
+      this._iv=setInterval(()=>{
+        let t=Math.min(1,(Date.now()-t0)/dur);
+        const e = t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
+        this.cx=sx+(x-sx)*e; this.cy=sy+(y-sy)*e;
+        if(this.cursorEl) this.cursorEl.style.transform='translate('+this.cx+'px,'+this.cy+'px)';
+        if(t>=1 || !this.playing){ clearInterval(this._iv); res(); }
+      },16);
+    });
+  }
+
+  async moveTo(auto){
+    const root=this.rootEl||document;
+    const el=root.querySelector('[data-auto="'+auto+'"]');
+    if(!el) return false;
+    const b=el.getBoundingClientRect();
+    if(b.width===0 && b.height===0) return false;
+    await this.tween(b.left+b.width/2, b.top+b.height*0.55, 740);
+    return true;
+  }
+
+  clickFx(){
+    const c=this.cursorEl;
+    if(c){ c.animate([{filter:'drop-shadow(0 2px 5px rgba(0,0,0,.4)) brightness(1)'},{filter:'drop-shadow(0 1px 2px rgba(0,0,0,.4)) brightness(1.6)'},{filter:'drop-shadow(0 2px 5px rgba(0,0,0,.4)) brightness(1)'}],{duration:260}); }
+    const r=this.rippleEl;
+    if(r){
+      r.style.transition='none'; r.style.opacity='0.85';
+      r.style.width='10px'; r.style.height='10px';
+      r.style.transform='translate('+(this.cx-5)+'px,'+(this.cy-5)+'px)';
+      requestAnimationFrame(()=>{
+        r.style.transition='width .5s ease-out, height .5s ease-out, opacity .5s ease-out, transform .5s ease-out';
+        r.style.opacity='0'; r.style.width='46px'; r.style.height='46px';
+        r.style.transform='translate('+(this.cx-23)+'px,'+(this.cy-23)+'px)';
+      });
+    }
+  }
+
+  async runLoop(){
+    await this.sleep(1100);
+    let i=0;
+    while(this.playing){
+      while(this.paused && this.playing){ await this.sleep(150); }
+      if(!this.playing) break;
+      const s=this.script[i];
+      if(s.scroll!=null){ this.animScroll(s.scroll); await this.sleep(450); }
+      await this.sleep(60);
+      const ok=await this.moveTo(s.auto);
+      if(!this.playing) break;
+      if(ok){ this.clickFx(); await this.sleep(200); s.act(); }
+      await this.sleep(s.wait||1000);
+      i=(i+1)%this.script.length;
+    }
+  }
+
+  renderVals(){
+    const s = this.state;
+    const I = (svg)=>this.ic(svg);
+    const navIc = {
+      deals:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>',
+      analytics:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18l5-6 4 3 6-8"/></svg>',
+      partners:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.2"/><path d="M16 14c2.5.2 4 2 4 4.5"/></svg>',
+      globe:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>',
+      library:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 18l9 5 9-5"/></svg>',
+      training:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.6 2.6M15.1 15.1l2.6 2.6M17.7 6.3l-2.6 2.6M8.9 15.1l-2.6 2.6"/></svg>',
+      engage:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M8 7a1 1 0 100-2 1 1 0 000 2zM17 19a1 1 0 100-2 1 1 0 000 2z"/></svg>',
+      whitespace:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>',
+      source:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>',
+      jv:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>',
+      agent:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M12 7V4M9 13h.01M15 13h.01"/></svg>',
+      market:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16l-1 4H5z"/><path d="M5 11v8h14v-8"/></svg>',
+      lists:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h9M3 6h.01M3 12h.01M3 18h.01"/></svg>',
+      discovery:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>',
+      apps:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>'
+    };
+    const item = (label,icon,active,auto,onClick)=>({ label, icon:I(icon), auto:auto||'', onClick:onClick||(()=>{}),
+      bg: active?'#eef3ff':'transparent', fg: active?'#2367f1':'#374151',
+      icColor: active?'#2367f1':'#8a8a8f', weight: active?'600':'400' });
+    const navGroups = [
+      { title:'HOME', items:[ item('Deals Management',navIc.deals,false), item('Deals management',navIc.deals,false), item('Analytics',navIc.analytics,false) ] },
+      { title:'PARTNERS', items:[ item('Manage partners',navIc.partners,false), item('Account mapping',navIc.globe,false), item('Content library',navIc.library,false), item('Partner training',navIc.training,true,'nav-training',()=>this.resetToWelcome()), item('Engagement',navIc.engage,false), item('Partner whitespace',navIc.whitespace,false), item('Source attribution',navIc.source,false), item('Prospective partner JV',navIc.jv,false), item('Partner activation agent',navIc.agent,false) ] },
+      { title:'DISCOVER', items:[ item('Marketplace',navIc.market,false), item('Prospect lists',navIc.lists,false), item('Partner discovery',navIc.discovery,false) ] },
+      { title:'WORKSPACE', items:[ item('App integrations',navIc.apps,false) ] }
+    ];
+
+    // ===== welcome how-it-works =====
+    const chip=(t)=>'<span style="border:1px solid #e6e6e6;border-radius:7px;padding:5px 11px;font-size:12px;color:#6b7280;">'+t+'</span>';
+    const dot=(c,t)=>'<span style="display:inline-flex;align-items:center;gap:6px;background:#f5f6f8;border-radius:20px;padding:5px 11px;font-size:12.5px;color:#374151;font-weight:500;"><span style="width:7px;height:7px;border-radius:50%;background:'+c+';"></span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M4 18l5-6 4 3 6-8"/></svg>'+t+'</span>';
+    const howSteps = [
+      { step:'STEP 1', title:'Build', tint:'#e8effe', icon:I('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2367f1" stroke-width="2"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 18l9 5 9-5"/></svg>'),
+        body:'Drop a PDF or build from scratch. We chapter it into lessons and draft a quiz.', foot:I('<div style="display:flex;gap:8px;flex-wrap:wrap;">'+chip('PDF')+chip('Slides')+chip('Video')+chip('Link')+'</div>') },
+      { step:'STEP 2', title:'Assign', tint:'#f0e9fc', icon:I('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 18l9 5 9-5"/></svg>'),
+        body:'Send it to the partner organisations who need it, with a due date.', foot:I('<div style="display:flex;">'+['#6366f1','#14b8a6','#f43f5e','#9333ea','#2367f1','#f59e0b'].map((c,i)=>'<span style="width:26px;height:26px;border-radius:50%;background:'+c+';color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;border:2px solid #fff;margin-left:'+(i?'-7px':'0')+';">'+['I','A','R','E','S','N'][i]+'</span>').join('')+'</div>') },
+      { step:'STEP 3', title:'Watch it climb', tint:'#fdf0d9', icon:I('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d18b1e" stroke-width="2"><path d="M4 18l5-6 4 3 6-8"/></svg>'),
+        body:'Engagement, completion and certifications update live as partners learn.', foot:I('<div style="display:flex;gap:8px;flex-wrap:wrap;">'+dot('#2367f1','Engagement')+dot('#16a34a','Completion')+dot('#d18b1e','Certified')+'</div>') }
+    ];
+
+    // ===== stepper =====
+    const ws = s.wstep;
+    const check='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>';
+    const stState = (n,state)=>{ // state: done|active|next
+      if(state==='done') return { bg:'#16a34a', fg:'#fff', border:'none', inner:I(check), labelFg:'#141414' };
+      if(state==='active') return { bg:'#2367f1', fg:'#fff', border:'none', inner:I(String(n)), labelFg:'#141414' };
+      return { bg:'#fff', fg:'#9ca3af', border:'1.5px solid #e2e2e2', inner:I('<span style="color:#9ca3af;">'+n+'</span>'), labelFg:'#9ca3af' };
+    };
+    let u,r,a;
+    if(ws==='upload'||ws==='drafting'){ u='active'; r='next'; a='next'; }
+    else if(ws==='review'){ u='done'; r='active'; a='next'; }
+    else { u='done'; r='done'; a='active'; }
+    const stepper = [
+      { ...stState(1,u), label:'Upload', hasLine:true, flex:'' },
+      { ...stState(2,r), label:'Review', hasLine:true, flex:'' },
+      { ...stState(3,a), label:'Assign', hasLine:false, flex:'' }
+    ];
+
+    // ===== content items =====
+    const contentItems = [
+      { name:'Company_budget.xls', tag:'PDF', tagFg:'#dc2626', meta:'• 24 pages • 2.4MB', tint:'#fdecec', icon:I('<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>') },
+      { name:'Product walkthrough.mp4', tag:'MP4', tagFg:'#2367f1', meta:'• 12:06 • 67MB', tint:'#e8f1fd', icon:I('<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2367f1" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg>') },
+      { name:'Enablement session', tag:'Webpage', tagFg:'#16a34a', meta:'• Webpage', tint:'#e8f6ed', icon:I('<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>') }
+    ];
+
+    // ===== drafting steps =====
+    const spinner='<span style="width:24px;height:24px;border-radius:50%;border:3px solid #ede4fb;border-top-color:#9333ea;display:inline-block;animation:spin .8s linear infinite;"></span>';
+    const checkG='<span style="width:24px;height:24px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span>';
+    const grayDot='<span style="width:24px;height:24px;border-radius:50%;background:#e5e7eb;display:inline-block;"></span>';
+    const draftLabels = ['Taking in your 4 sources...','Chaptering into lessons...','Writing a quiz from the key points...','Polishing the draft...'];
+    const ds = s.draftStep;
+    const draftSteps = draftLabels.map((label,idx)=>{
+      let icon, fg;
+      if(idx<ds){ icon=checkG; fg='#141414'; }
+      else if(idx===ds){ icon=spinner; fg='#141414'; }
+      else { icon=grayDot; fg='#c4c4c7'; }
+      return { label, icon:I(icon), fg };
+    });
+
+    // ===== review lessons =====
+    const pdfIc='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>';
+    const vidIc='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2367f1" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg>';
+    const linkIc='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>';
+    const rl = [
+      ['Welcome & how partnership works','6 min',pdfIc,'#f0e9fc'],
+      ['Understanding our goals','5 min',pdfIc,'#f0e9fc'],
+      ['Setting up your account','8 min',vidIc,'#e8f1fd'],
+      ['Co-selling & deal registration','10 min',pdfIc,'#f0e9fc'],
+      ["Getting support when you're stuck",'10 min',linkIc,'#eef0f3']
+    ];
+    const reviewLessons = rl.map((l,i)=>({ n:String(i+1).padStart(2,'0'), title:l[0], min:l[1], icon:I(l[2]), tint:l[3], border: i<rl.length-1?'1px solid #f1f1f1':'none' }));
+
+    // ===== review quiz =====
+    const qData = [
+      ['Q1','Where do partners register a new deal?',['Prospecting and Lead Generation','Closing the Deal','Post-Sale Follow-Up and Support'],0],
+      ['Q2','What is the typical sales cycle duration?',['1-3 Months','4-6 Months','7-12 Months'],0],
+      ['Q3','How do partners track their sales performance?',['Sales Dashboards','Monthly Reports','Performance Metrics'],0],
+      ['Q4','What tools do partners use for customer engagement?',['CRM Software','Email Marketing','Social Media Tools'],0],
+      ['Q5','How do partners manage their inventory?',['Inventory Management Systems','Real-Time Tracking','Supply Chain Solutions'],0]
+    ];
+    const reviewQuiz = qData.map(q=>({ q:q[0], question:q[1],
+      options:q[2].map((o,i)=>({ label:o, ring: i===q[3]?'#2367f1':'#d8d8dd', dot: i===q[3]?'#2367f1':'transparent', fg: i===q[3]?'#141414':'#6b7280' })) }));
+
+    // ===== assign partners =====
+    const apData = [
+      ['mc','MC','Meridian Capital','#8b6f47'],['nb','NB','Northwind Bank','#9333ea'],
+      ['as','AS','Atlas Securities','#2367f1'],['cc','CC','Cedar & Co','#14b8a6'],
+      ['pg','PG','Polaris Group','#2dd4bf'],['vx','VX','Vertex Partners','#eab308'],
+      ['hl','HL','Holloway Advisory','#ef4444'],['kn','KN','Kinetic Retail','#f59e0b']
+    ];
+    const assignPartners = apData.map(p=>{
+      const on = !!s.assigned[p[0]];
+      return { auto:'assign-'+p[0], initials:p[1], name:p[2], color:p[3],
+        toggle:()=>this.togglePartner(p[0]),
+        border: on?'#bcd2f8':'#ececec', bg: on?'#f4f8ff':'#fff', nameFg: on?'#2367f1':'#141414',
+        boxBorder: on?'#2367f1':'#d8d8dd', boxBg: on?'#2367f1':'#fff',
+        check: on? I('<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>') : I('') };
+    });
+    const dueOptions = [
+      {label:'1 week',sel:false},{label:'2 weeks',sel:true},{label:'1 month',sel:false},{label:'3 months',sel:false},{label:'No deadline',sel:false}
+    ].map(d=>({ label:d.label, border:d.sel?'#bcd2f8':'#e2e2e2', bg:d.sel?'#f4f8ff':'#fff', fg:d.sel?'#2367f1':'#374151', weight:d.sel?'600':'500' }));
+    const selKeys = Object.keys(s.assigned).filter(k=>s.assigned[k]);
+    const selData = apData.filter(p=>s.assigned[p[0]]);
+    const selectedAvatars = selData.slice(0,4).map(p=>({ initials:p[1], color:p[3] }));
+    const hasMoreAvatars = selData.length>4;
+    const moreCount = '+'+(selData.length-4);
+
+    // wizard footer buttons
+    const backBtn = ws==='upload'
+      ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> Cancel'
+      : '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back';
+    const primaryBtn = ws==='assign'
+      ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Publish & Assign'
+      : '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.6 2.6M15.1 15.1l2.6 2.6"/></svg> Draft my module';
+    const primaryAuto = ws==='upload' ? 'draft-module' : ws==='review' ? 'review-continue' : ws==='assign' ? 'publish' : '';
+
+    // ===== dashboard stats =====
+    const dashStats = [
+      ['Avg engagement','78%','','2,18 14,12 26,14 38,9 50,11 58,4','#16a34a',false],
+      ['Completion','64%','','2,14 14,16 26,10 38,13 50,7 58,9','#d18b1e',true],
+      ['Active partners','18','/24','2,16 14,13 26,15 38,10 50,12 58,5','#16a34a',true],
+      ['Certified','11','partners','2,17 14,14 26,12 38,13 50,7 58,5','#16a34a',true]
+    ].map(m=>({ label:m[0], value:m[1], suffix:m[2]?(' '+m[2]):'', spark:m[3], sparkColor:m[4], border:m[5]?'1px solid #ececec':'none' }));
+
+    // ===== modules =====
+    const av=(arr)=>arr.map(a=>({ initials:a[0], color:a[1] }));
+    const modules = [
+      { auto:'open-module', open:()=>this.openDetailAct(), title:'Partner Onboarding Essentials', desc:'The first mile — accounts, access, and how partners reach first value fast. 5 lessons and a 3-question quiz.', thumb:'#7ea6f5', tag:'Onboarding', tagBg:'#fdf0d9', tagFg:'#d18b1e', avatars:av([['MC','#8b6f47'],['NW','#6366f1'],['AT','#2367f1'],['+2','#cbd5e1']]) },
+      { auto:'', title:'User Requirements', desc:'A comprehensive list of user needs, preferences, and usability studies.', thumb:'#a9c6f9', tag:'Product Training', tagBg:'#e8f1fd', tagFg:'#2367f1', avatars:av([['A','#2367f1'],['R','#eab308'],['D','#14b8a6'],['+1','#cbd5e1']]) },
+      { auto:'', title:'Project Timeline', desc:'A schedule outlining key milestones, deadlines, and deliverables for the project.', thumb:'#c4b5fd', tag:'Sales Training', tagBg:'#f0e9fc', tagFg:'#9333ea', avatars:av([['C','#141414'],['T','#14b8a6']]) },
+      { auto:'', title:'Final Review', desc:'A comprehensive assessment of the project to ensure all objectives are met before launc...', thumb:'#86efac', tag:'Stakeholder Feedback', tagBg:'#e8f6ed', tagFg:'#16a34a', avatars:av([['T','#2367f1'],['N','#9333ea']]) },
+      { auto:'', title:'Technical Specifications', desc:'Detailed specifications, performance metrics, and compliance documentation.', thumb:'#fcd9a8', tag:'Onboarding', tagBg:'#fdf0d9', tagFg:'#d18b1e', avatars:av([['R','#8b6f47'],['S','#14b8a6'],['D','#ef4444'],['+4','#cbd5e1']]) }
+    ];
+
+    const topPartners = [
+      { rank:'1', initials:'MC', color:'#8b6f47', name:'Meridian Capital', score:'94% avg score' },
+      { rank:'2', initials:'NW', color:'#6366f1', name:'Northwind Bank', score:'92% avg score' },
+      { rank:'3', initials:'AT', color:'#2367f1', name:'Atlas Securities', score:'88% avg score' }
+    ];
+    const needsNudge = [
+      { initials:'KN', color:'#f59e0b', name:'Kinetic Retails', status:'not started • 9d', auto:'nudge-kn', nudge:()=>this.setState({nudgeOpen:true}) },
+      { initials:'CC', color:'#16a34a', name:'Cedar & Co', status:'stalled • L3', auto:'', nudge:()=>this.setState({nudgeOpen:true}) }
+    ];
+
+    // ===== detail =====
+    const detailStats = [
+      ['Completion','78%',''],['Avg quiz score','64%',''],['Certified','3','/6'],['Active now','6','/6']
+    ].map((m,i)=>({ label:m[0], value:m[1], suffix:m[2], border:i?'1px solid #ececec':'none' }));
+
+    const tabMeta = [
+      ['curriculum','Curriculum','<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/></svg>'],
+      ['partners','Partners','<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.2"/></svg>'],
+      ['settings','Settings','<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 0 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H1a2 2 0 0 1 0-4h.1A1.6 1.6 0 0 0 2.6 7a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H7a1.6 1.6 0 0 0 1-1.5V1a2 2 0 0 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1 1.6 1.6 0 0 0 .3-1.8z"/></svg>']
+    ];
+    const detailTabs = tabMeta.map(t=>{
+      const on = s.tab===t[0];
+      return { auto:'tab-'+t[0], go:()=>this.setState({tab:t[0]}),
+        bg: on?'#141414':'transparent', fg: on?'#fff':'#6b7280',
+        html: I('<span style="display:inline-flex;align-items:center;gap:8px;">'+t[2].replace('width="15"','width="15"')+t[1]+'</span>') };
+    });
+
+    const cIc=(c)=>'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="2">';
+    const curriculum = [
+      ['Platform architecture in 10 minutes','Video • 10 min • 9:42','94%','#16a34a',vidIc,'#e8f1fd'],
+      ['Performance benchmarks & SLAs','PDF • 8 min • 9 pages','89%','#16a34a',pdfIc,'#f0e9fc'],
+      ['Security & compliance documentation','PDF • 12 min • 14 pages','52%','#e0a020',pdfIc,'#f0e9fc'],
+      ['Integration surface: API & Webhooks','Video • 7 min • 6:55','47%','#e0a020',vidIc,'#e8f1fd'],
+      ['Spec sheet walkthrough & staying current','Link • 5 min • help.nextron.com/specs','44%','#e0a020','<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>','#e8f6ed']
+    ].map((c,i)=>({ n:String(i+1).padStart(2,'0'), title:c[0], meta:c[1], pct:c[2], color:c[3], icon:I(c[4]), tint:c[5], border: i?'1px solid #f4f4f5':'none' }));
+
+    const knowledge = [
+      ['Q1','Where do partners find the latest spec sheet?','89%','#16a34a',false,''],
+      ['Q2','Which SLA tier applies to enterprise deployments?','76%','#16a34a',false,''],
+      ['Q3','What must be in place before a compliance review?','54%','#dc2626',true,'Most wrong answers pick "a signed NDA only"'],
+      ['Q4','Which auth methods does the public API support?','85%','#16a34a',false,''],
+      ['Q5','How often are performance benchmarks re-certified?','69%','#e0a020',false,'']
+    ].map((k,i)=>({ q:k[0], question:k[1], pct:k[2], color:k[3], hasNote:k[4], note:k[5], border: i?'1px solid #f4f4f5':'none' }));
+
+    const learnerJourney = [
+      ['L1','18','100%','',false,''],
+      ['L2','17','94%','-1',false,''],
+      ['L3','12','67%','-5',true,'biggest drop - Security & compliance doc..'],
+      ['L4','9','50%','-3',false,''],
+      ['L5','8','44%','-1',false,'']
+    ].map(l=>({ label:l[0], val:l[1], w:l[2], delta:l[4]?l[3]:l[3], color: l[4]?'linear-gradient(90deg,#5b9bf5,#f43f5e)':'#3f86f0', hasNote:l[4], note:l[5] }));
+
+    const aiInsights = [
+      { title:'6 learners stall at lesson 3', body:'"Security & compliance documentation" takes 2.4x the median lesson time. Splitting it into two shorter lessons could recover ~5 completions.' },
+      { title:'Question 3 misses 46% of attempts', body:'The source PDF is ambiguous about compliance prerequisites. Rewrite the questions, or add a callout in lesson 3.' }
+    ];
+
+    const partnerFilters = ['All','On track','Stalled','Not started'].map((f,i)=>({ label:f, bg: i===0?'#141414':'transparent', fg: i===0?'#fff':'#6b7280' }));
+    const dp = [
+      ['M','Meridian Capital','3 learners','#f43f5e','100%','94%','Certified','#e7f7ec','#16a34a','2h ago','#16a34a'],
+      ['N','Northwind Bank','5 learners','#2367f1','95%','89%','On track','#e8f1fd','#2367f1','1h ago','#16a34a'],
+      ['P','Pinnacle Holdings','12 learners','#38bdf8','88%','85%','On track','#e8f1fd','#2367f1','15m ago','#16a34a'],
+      ['O','Omega Investments','8 learners','#f59e0b','93%','91%','On track','#e8f1fd','#2367f1','30m ago','#16a34a'],
+      ['H','Holloway Advisory','12 learners','#8b6f47','38%','71%','Stalled','#fdf0d9','#d18b1e','4d ago','#e0a020'],
+      ['C','Cedar & Co','5 learners','#16a34a','24%','64%','Stalled','#fdf0d9','#d18b1e','6d ago','#e0a020'],
+      ['K','Kinetic Retail','10 learners','#6366f1','0%','-','Not started','#f1f2f4','#9ca3af','Invited 9d ago','#e5e7eb']
+    ];
+    const detailPartners = dp.map(p=>({ initials:p[0], name:p[1], learners:p[2], color:p[3], pct:p[4], quiz:p[5], status:p[6], statusBg:p[7], statusFg:p[8], last:p[9], barColor:p[10] }));
+
+    const dThumb = (type)=>{
+      if(type==='classic') return '<div style="flex:1;padding:14px;"><div style="height:8px;width:55%;border-radius:3px;background:#4f8df9;opacity:.5;margin-bottom:8px;"></div><div style="height:5px;width:75%;border-radius:3px;background:#dadde2;margin-bottom:6px;"></div><div style="height:5px;width:60%;border-radius:3px;background:#e6e8ec;"></div></div>';
+      if(type==='modern') return '<div style="width:34%;background:#4f8df9;"></div><div style="flex:1;padding:14px;"><div style="height:7px;width:60%;border-radius:3px;background:#bcd5fb;margin-bottom:8px;"></div><div style="height:5px;width:80%;border-radius:3px;background:#e6e8ec;margin-bottom:6px;"></div><div style="height:5px;width:55%;border-radius:3px;background:#eef0f3;"></div></div>';
+      return '<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;"><span style="width:18px;height:18px;border-radius:50%;background:#4f8df9;"></span><div style="height:6px;width:50%;border-radius:3px;background:#dadde2;"></div><div style="height:5px;width:36%;border-radius:3px;background:#e6e8ec;"></div></div>';
+    };
+    const radioOn = '<span style="width:10px;height:10px;border-radius:50%;background:#2367f1;"></span>';
+    const certDesigns = [
+      { name:'Classic', sel:false, thumb:I(dThumb('classic')) },
+      { name:'Modern', sel:true, thumb:I(dThumb('modern')) },
+      { name:'Seal', sel:false, thumb:I(dThumb('seal')) }
+    ].map(c=>({ name:c.name, thumb:c.thumb, border:c.sel?'#bcd2f8':'#ececec', radio:c.sel?'#2367f1':'#d8d8dd', radioInner:c.sel?I(radioOn):I('') }));
+
+    const accIc=(c)=>'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="2">';
+    const accessOptions = [
+      { title:'Assigned partners only', desc:'Only the partners you assign can see this module.', sel:true, tint:'#f0e9fc', icon:I(accIc('#9333ea')+'<circle cx="12" cy="8" r="3.2"/><path d="M6 20c0-3 2.7-5 6-5s6 2 6 5"/></svg>') },
+      { title:'All partners', desc:'Every active partner organisation gets it automatically.', sel:false, tint:'#e8f1fd', icon:I(accIc('#2367f1')+'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.2"/></svg>') },
+      { title:'By partner tier', desc:'Limit access to Gold and Silver partners.', sel:false, tint:'#fdf0d9', icon:I(accIc('#d18b1e')+'<circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg>') }
+    ].map(o=>({ title:o.title, desc:o.desc, tint:o.tint, icon:o.icon,
+      border:o.sel?'#bcd2f8':'#ececec', bg:o.sel?'#f4f8ff':'#fff', radio:o.sel?'#2367f1':'#d8d8dd',
+      radioInner:o.sel?I('<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2367f1" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>'):I('') }));
+
+    return {
+      navGroups,
+      rootRef:(el)=>{ this.rootEl=el; },
+      scrollRef:(el)=>{ this.scrollEl=el; },
+      cursorRef:(el)=>{ this.cursorEl=el; },
+      rippleRef:(el)=>{ this.rippleEl=el; },
+      pauseAuto:()=>{ this.paused=true; if(this.cursorEl)this.cursorEl.style.opacity='0'; if(this.rippleEl)this.rippleEl.style.opacity='0'; },
+      resumeAuto:()=>{ this.paused=false; if(this.cursorEl)this.cursorEl.style.opacity='1'; },
+
+      pageWelcome: s.page==='welcome', pageWizard: s.page==='wizard', pageDashboard: s.page==='dashboard', pageDetail: s.page==='detail',
+      isUpload: ws==='upload', isDrafting: ws==='drafting', isReview: ws==='review', isAssign: ws==='assign', isDone: ws==='done',
+      showStepper: s.page==='wizard' && ws!=='done',
+      showFooter: s.page==='wizard' && (ws==='upload'||ws==='review'||ws==='assign'),
+      wizTitle: ws==='done' ? 'Module created' : 'New module',
+      stepper,
+
+      howSteps,
+      openWizard:()=>this.openWizardAct(),
+      closeWizard:()=>this.resetToWelcome(),
+
+      uploaded: s.uploaded, uploadEmpty: !s.uploaded, uploadCount: s.uploaded? '3':'0', contentItems,
+      draftSteps,
+      reviewLessons, reviewQuiz,
+      assignPartners, dueOptions,
+      selectedAvatars, hasMoreAvatars, moreCount,
+      backBtn:I(backBtn), primaryBtn:I(primaryBtn), primaryAuto,
+      wizardBack:()=>{ if(ws==='upload') this.resetToWelcome(); else if(ws==='review') this.setState({wstep:'upload'}); else if(ws==='assign') this.setState({wstep:'review'}); },
+      wizardPrimary:()=>{ if(ws==='upload') this.startDraft(); else if(ws==='review') this.setState({wstep:'assign'}); else if(ws==='assign') this.setState({wstep:'done'}); },
+      goDashboard:()=>this.goDashboardAct(),
+
+      dashStats, modules, topPartners, needsNudge,
+      detailStats, detailTabs,
+      tabCurriculum: s.tab==='curriculum', tabPartners: s.tab==='partners', tabSettings: s.tab==='settings',
+      curriculum, knowledge, learnerJourney, aiInsights,
+      partnerFilters, detailPartners,
+      certDesigns, accessOptions,
+      backToDashboard:()=>this.goDashboardAct(),
+
+      nudgeOpen: s.nudgeOpen, closeNudge:()=>this.setState({nudgeOpen:false}),
+      certOpen: s.certOpen, openCert:()=>this.setState({certOpen:true}), closeCert:()=>this.setState({certOpen:false})
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -188,6 +188,55 @@ function DealsDemoEmbed() {
   );
 }
 
+function PartnerTrainingDemoEmbed() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.65);
+
+  useEffect(() => {
+    const update = () => {
+      if (wrapRef.current) {
+        setScale(wrapRef.current.offsetWidth / 1440);
+      }
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    if (wrapRef.current) ro.observe(wrapRef.current);
+    return () => ro.disconnect();
+  }, []);
+
+  const DEMO_H = 760;
+
+  return (
+    <Reveal>
+      <Container as="figure" className="my-20">
+        <div className="overflow-hidden rounded-lg border border-line bg-bg-elev">
+          <div ref={wrapRef} style={{ height: `${DEMO_H * scale}px`, position: "relative", overflow: "hidden" }}>
+            <iframe
+              src="/work/airstride/partner-training-demo/index.html"
+              title="Partner Training interactive demo"
+              style={{
+                width: "1440px",
+                height: `${DEMO_H}px`,
+                border: "none",
+                transform: `scale(${scale})`,
+                transformOrigin: "top left",
+              }}
+            />
+          </div>
+        </div>
+        <figcaption className="mt-6 flex flex-col gap-1 text-center md:flex-row md:items-baseline md:justify-center md:gap-4">
+          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
+            Partner Training
+          </span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
+            Interactive prototype · auto-playing demo
+          </span>
+        </figcaption>
+      </Container>
+    </Reveal>
+  );
+}
+
 const NAV_H = 72;   // fixed site nav height (matches pt-[72px] on <main>)
 const TAB_H = 48;   // approximate height of this tab bar
 
@@ -467,19 +516,7 @@ export function AirstrideCase() {
             </div>
           </Container>
         </Reveal>
-        <CaseFigure
-          surface="tile"
-          kicker="Partner Training · Vendor view"
-          caption="Module dashboard with AI and manual creation paths, certification tracking, and role-specific views"
-          images={[
-            {
-              src: "/work/airstride/partner-training.png",
-              alt: "Partner training module showing vendor view with module creation paths and certification states",
-              width: 1440,
-              height: 900,
-            },
-          ]}
-        />
+        <PartnerTrainingDemoEmbed />
       </section>
 
       {/* ===== MODULE 05: CONTENT LIBRARY ===== */}
