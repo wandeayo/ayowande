@@ -41,6 +41,55 @@ const MODULES = [
   { id: "engagement", label: "Engagement" },
 ];
 
+function AnalyticsDemoEmbed() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.65);
+
+  useEffect(() => {
+    const update = () => {
+      if (wrapRef.current) {
+        setScale(wrapRef.current.offsetWidth / 1440);
+      }
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    if (wrapRef.current) ro.observe(wrapRef.current);
+    return () => ro.disconnect();
+  }, []);
+
+  const DEMO_H = 760;
+
+  return (
+    <Reveal>
+      <Container as="figure" className="my-20">
+        <div className="overflow-hidden rounded-lg border border-line bg-bg-elev">
+          <div ref={wrapRef} style={{ height: `${DEMO_H * scale}px`, position: "relative", overflow: "hidden" }}>
+            <iframe
+              src="/work/airstride/analytics-demo/index.html"
+              title="Analytics interactive demo"
+              style={{
+                width: "1440px",
+                height: `${DEMO_H}px`,
+                border: "none",
+                transform: `scale(${scale})`,
+                transformOrigin: "top left",
+              }}
+            />
+          </div>
+        </div>
+        <figcaption className="mt-6 flex flex-col gap-1 text-center md:flex-row md:items-baseline md:justify-center md:gap-4">
+          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
+            Analytics
+          </span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
+            Interactive prototype · auto-playing demo
+          </span>
+        </figcaption>
+      </Container>
+    </Reveal>
+  );
+}
+
 function AccountMappingDemoEmbed() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.65);
@@ -376,19 +425,7 @@ export function AirstrideCase() {
             </div>
           </Container>
         </Reveal>
-        <CaseFigure
-          surface="tile"
-          kicker="Analytics"
-          caption="Analytics dashboard with customise view overlay and default data surface"
-          images={[
-            {
-              src: "/work/airstride/analytics.png",
-              alt: "Analytics module showing main dashboard and customise view modal with layout controls",
-              width: 1440,
-              height: 900,
-            },
-          ]}
-        />
+        <AnalyticsDemoEmbed />
       </section>
 
       {/* ===== MODULE 04: PARTNER TRAINING ===== */}
