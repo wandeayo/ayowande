@@ -415,7 +415,7 @@ function ModuleNav() {
   };
 
   return (
-    <div className="sticky top-[72px] z-20 border-b border-line bg-bg/90 backdrop-blur-md">
+    <div className="sticky top-[72px] z-20 border-b border-line bg-bg">
       <Container>
         <nav className="flex overflow-x-auto">
           {MODULES.map(({ id, label }) => (
