@@ -646,13 +646,14 @@ class Component extends DCLogic {
       market:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16l-1 4H5z"/><path d="M5 11v8h14v-8"/></svg>',
       lists:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h9M3 6h.01M3 12h.01M3 18h.01"/></svg>',
       discovery:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>',
-      apps:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>'
+      apps:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+      overview:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>'
     };
     const item = (label,icon,active)=>({ label, icon:this.ic(icon),
       bg: active?'#eef3ff':'transparent', fg: active?'#2367f1':'#374151',
       icColor: active?'#2367f1':'#8a8a8f', weight: active?'600':'400' });
     const navGroups = [
-      { title:'HOME', items:[ item('Deals Management',navIc.deals,true), item('Deals management',navIc.deals,false), item('Analytics',navIc.analytics,false) ] },
+      { title:'HOME', items:[ item('Overview',navIc.overview,false), item('Deals Management',navIc.deals,true), item('Analytics',navIc.analytics,false) ] },
       { title:'PARTNERS', items:[ item('Manage partners',navIc.partners,false), item('Account mapping',navIc.globe,false), item('Content library',navIc.library,false), item('Partner training',navIc.training,false), item('Engagement',navIc.engage,false), item('Partner whitespace',navIc.whitespace,false), item('Source attribution',navIc.source,false), item('Prospective partner JV',navIc.jv,false), item('Partner activation agent',navIc.agent,false) ] },
       { title:'DISCOVER', items:[ item('Marketplace',navIc.market,false), item('Prospect lists',navIc.lists,false), item('Partner discovery',navIc.discovery,false) ] },
       { title:'WORKSPACE', items:[ item('App integrations',navIc.apps,false) ] }
