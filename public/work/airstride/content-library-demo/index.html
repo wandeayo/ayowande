@@ -889,7 +889,7 @@ class Component extends DCLogic {
       bg: active?'#eef3ff':'transparent', fg: active?'#2367f1':'#374151',
       icColor: active?'#2367f1':'#8a8a8f', weight: active?'600':'400' });
     const navGroups = [
-      { title:'HOME', items:[ item('Deals Management',navIc.deals,false), item('Deals management',navIc.deals,false), item('Analytics',navIc.analytics,false) ] },
+      { title:'HOME', items:[ item('Deals Management',navIc.deals,false), item('Overview',navIc.deals,false), item('Analytics',navIc.analytics,false) ] },
       { title:'PARTNERS', items:[ item('Manage partners',navIc.partners,false), item('Account mapping',navIc.globe,false), item('Content library',navIc.library,true,'nav-content',()=>this.gotoGridAct()), item('Partner training',navIc.training,false), item('Engagement',navIc.engage,false), item('Partner whitespace',navIc.whitespace,false), item('Source attribution',navIc.source,false), item('Prospective partner JV',navIc.jv,false), item('Partner activation agent',navIc.agent,false) ] },
       { title:'DISCOVER', items:[ item('Marketplace',navIc.market,false), item('Prospect lists',navIc.lists,false), item('Partner discovery',navIc.discovery,false) ] },
       { title:'WORKSPACE', items:[ item('App integrations',navIc.apps,false) ] }
