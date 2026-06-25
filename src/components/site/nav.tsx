@@ -32,7 +32,7 @@ export function Nav() {
         aria-label={`${SITE.shortName} home`}
       >
         <span className="pulse-dot" aria-hidden />
-        <span>AYO &mdash;05</span>
+        <span>AYO</span>
       </Link>
 
       <div className="hidden gap-1 font-mono text-[12px] uppercase tracking-[0.06em] md:flex">
