@@ -28,10 +28,10 @@ export default function WorkPage() {
           system, and the team that built it.
         </p>
 
-        <div className="flex flex-col gap-8 pt-20 pb-10">
-          {PROJECTS.map((project, idx) => (
+        <div className="grid grid-cols-1 gap-[30px] pt-20 pb-10 md:grid-cols-2">
+          {PROJECTS.map((project) => (
             <Reveal key={project.slug}>
-              <WorkCard project={project} index={idx} />
+              <WorkCard project={project} />
             </Reveal>
           ))}
         </div>

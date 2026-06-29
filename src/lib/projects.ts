@@ -1,3 +1,5 @@
+export type ThumbKind = "carmen" | "airstride" | "arctic" | "dexla";
+
 export interface Project {
   slug: string;
   num: string;
@@ -12,6 +14,8 @@ export interface Project {
   cardGradient: string;
   /** Preview image shown in cursor-tracking work list (path under /public). */
   cardImage?: string;
+  /** Which animated thumbnail to render on cards. */
+  thumbKind: ThumbKind;
 }
 
 export const PROJECTS: Project[] = [
@@ -28,6 +32,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     cardGradient: "linear-gradient(135deg, #1a2a1f 0%, #0f1612 100%)",
     cardImage: "/work/carmen-ai.png",
+    thumbKind: "carmen",
   },
   {
     slug: "airstride",
@@ -41,6 +46,7 @@ export const PROJECTS: Project[] = [
     tags: ["Web App", "Internal"],
     cardGradient: "linear-gradient(135deg, #1f1a26 0%, #0f0c14 100%)",
     cardImage: "/work/airstride.png",
+    thumbKind: "airstride",
   },
   {
     slug: "arctic-edge",
@@ -53,6 +59,7 @@ export const PROJECTS: Project[] = [
     tags: ["Mobile", "Wellness"],
     cardGradient: "linear-gradient(135deg, #1a242a 0%, #0c1316 100%)",
     cardImage: "/work/arctic-edge.png",
+    thumbKind: "arctic",
   },
   {
     slug: "dexla-design-system",
@@ -66,6 +73,7 @@ export const PROJECTS: Project[] = [
     tags: ["Design System", "Tokens"],
     cardGradient: "linear-gradient(135deg, #2a261a 0%, #16130c 100%)",
     cardImage: "/work/dexla-design-system.png",
+    thumbKind: "dexla",
   },
 ];
 
